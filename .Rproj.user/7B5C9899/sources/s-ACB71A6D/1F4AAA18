@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "ISO8859-1",
     "folds" : "",
-    "hash" : "1784756189",
+    "hash" : "1676504294",
     "id" : "1F4AAA18",
-    "lastKnownWriteTime" : 1579452286,
-    "last_content_update" : 1579452286,
+    "lastKnownWriteTime" : 1579459608,
+    "last_content_update" : 1579459608824,
     "path" : "C:/Users/shibiao.ding/Dropbox/baye/index.Rmd",
     "project_path" : "index.Rmd",
     "properties" : {
+        "cursorPosition" : "15,49",
+        "scrollLine" : "0"
     },
     "relative_order" : 1,
     "source_on_save" : false,

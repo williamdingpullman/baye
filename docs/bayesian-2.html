@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Bayesian - 2 | Bayesian</title>
+  <meta name="description" content="The webpages are mainly about Bayesian." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Bayesian - 2 | Bayesian" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The webpages are mainly about Bayesian." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Bayesian - 2 | Bayesian" />
+  
+  <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
+  
+
+<meta name="author" content="Bill Last Updated:" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bayesian-1.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: Motivation</a></li>
+<li class="chapter" data-level="1" data-path="bayesian-1.html"><a href="bayesian-1.html"><i class="fa fa-check"></i><b>1</b> Bayesian - 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="bayesian-1.html"><a href="bayesian-1.html#frequentist-perspective"><i class="fa fa-check"></i><b>1.1</b> Frequentist perspective</a></li>
+<li class="chapter" data-level="1.2" data-path="bayesian-1.html"><a href="bayesian-1.html#bayesian-perspective"><i class="fa fa-check"></i><b>1.2</b> Bayesian perspective</a></li>
+<li class="chapter" data-level="1.3" data-path="bayesian-1.html"><a href="bayesian-1.html#continous-parameters"><i class="fa fa-check"></i><b>1.3</b> Continous parameters</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="bayesian-1.html"><a href="bayesian-1.html#uniform"><i class="fa fa-check"></i><b>1.3.1</b> Uniform</a></li>
+<li class="chapter" data-level="1.3.2" data-path="bayesian-1.html"><a href="bayesian-1.html#uniform-prior-versus-posterior"><i class="fa fa-check"></i><b>1.3.2</b> Uniform: prior versus posterior</a></li>
+<li class="chapter" data-level="1.3.3" data-path="bayesian-1.html"><a href="bayesian-1.html#uniform-equal-tailed-versus-hpd"><i class="fa fa-check"></i><b>1.3.3</b> Uniform: equal tailed versus HPD</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="bayesian-1.html"><a href="bayesian-1.html#bernoullibinomial-likelihood-with-uniform-prior"><i class="fa fa-check"></i><b>1.4</b> Bernoulli/binomial likelihood with uniform prior</a></li>
+<li class="chapter" data-level="1.5" data-path="bayesian-1.html"><a href="bayesian-1.html#conjugate-priors"><i class="fa fa-check"></i><b>1.5</b> Conjugate priors</a></li>
+<li class="chapter" data-level="1.6" data-path="bayesian-1.html"><a href="bayesian-1.html#poisson-distribution"><i class="fa fa-check"></i><b>1.6</b> Poisson distribution</a></li>
+<li class="chapter" data-level="1.7" data-path="bayesian-1.html"><a href="bayesian-1.html#exponential-data"><i class="fa fa-check"></i><b>1.7</b> Exponential data</a></li>
+<li class="chapter" data-level="1.8" data-path="bayesian-1.html"><a href="bayesian-1.html#normal-likelihood"><i class="fa fa-check"></i><b>1.8</b> Normal likelihood</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="bayesian-1.html"><a href="bayesian-1.html#when-variance-is-known"><i class="fa fa-check"></i><b>1.8.1</b> When variance is known</a></li>
+<li class="chapter" data-level="1.8.2" data-path="bayesian-1.html"><a href="bayesian-1.html#when-variance-is-unknown"><i class="fa fa-check"></i><b>1.8.2</b> When variance is unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="bayesian-1.html"><a href="bayesian-1.html#non-informative-priors"><i class="fa fa-check"></i><b>1.9</b> Non-informative priors</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="bayesian-1.html"><a href="bayesian-1.html#bernoulli"><i class="fa fa-check"></i><b>1.9.1</b> Bernoulli</a></li>
+<li class="chapter" data-level="1.9.2" data-path="bayesian-1.html"><a href="bayesian-1.html#gaussian"><i class="fa fa-check"></i><b>1.9.2</b> Gaussian</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="bayesian-1.html"><a href="bayesian-1.html#jeffreys-priors"><i class="fa fa-check"></i><b>1.10</b> Jeffreys Priors</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="bayesian-1.html"><a href="bayesian-1.html#gaussian-1"><i class="fa fa-check"></i><b>1.10.1</b> Gaussian</a></li>
+<li class="chapter" data-level="1.10.2" data-path="bayesian-1.html"><a href="bayesian-1.html#bernoulli-1"><i class="fa fa-check"></i><b>1.10.2</b> Bernoulli</a></li>
+<li class="chapter" data-level="1.10.3" data-path="bayesian-1.html"><a href="bayesian-1.html#side-note-fisher-information"><i class="fa fa-check"></i><b>1.10.3</b> Side Note: Fisher Information</a></li>
+<li class="chapter" data-level="1.10.4" data-path="bayesian-1.html"><a href="bayesian-1.html#prior-predictive-distribution"><i class="fa fa-check"></i><b>1.10.4</b> Prior predictive distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="bayesian-1.html"><a href="bayesian-1.html#linear-regression"><i class="fa fa-check"></i><b>1.11</b> Linear regression</a><ul>
+<li class="chapter" data-level="1.11.1" data-path="bayesian-1.html"><a href="bayesian-1.html#review"><i class="fa fa-check"></i><b>1.11.1</b> Review</a></li>
+<li class="chapter" data-level="1.11.2" data-path="bayesian-1.html"><a href="bayesian-1.html#when-sigma2-is-known"><i class="fa fa-check"></i><b>1.11.2</b> When <span class="math inline">\(\sigma^2\)</span> is known</a></li>
+<li class="chapter" data-level="1.11.3" data-path="bayesian-1.html"><a href="bayesian-1.html#when-sigma2-is-unknown"><i class="fa fa-check"></i><b>1.11.3</b> When <span class="math inline">\(\sigma^2\)</span> is unknown</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bayesian-2.html"><a href="bayesian-2.html"><i class="fa fa-check"></i><b>2</b> Bayesian - 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="bayesian-2.html"><a href="bayesian-2.html#components-of-bayesian-models"><i class="fa fa-check"></i><b>2.1</b> Components of Bayesian models</a></li>
+<li class="chapter" data-level="2.2" data-path="bayesian-2.html"><a href="bayesian-2.html#monte-carlo-estimation"><i class="fa fa-check"></i><b>2.2</b> Monte Carlo Estimation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="bayesian-2.html"><a href="bayesian-2.html#mean-and-variance-application-of-central-limit-theorem"><i class="fa fa-check"></i><b>2.2.1</b> Mean and Variance: Application of Central Limit Theorem</a></li>
+<li class="chapter" data-level="2.2.2" data-path="bayesian-2.html"><a href="bayesian-2.html#monte-carlo-error-standard-error"><i class="fa fa-check"></i><b>2.2.2</b> Monte Carlo error (Standard Error)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="bayesian-2.html"><a href="bayesian-2.html#expected-value-and-probability"><i class="fa fa-check"></i><b>2.2.3</b> Expected value and probability</a></li>
+<li class="chapter" data-level="2.2.4" data-path="bayesian-2.html"><a href="bayesian-2.html#quantile"><i class="fa fa-check"></i><b>2.2.4</b> Quantile</a></li>
+<li class="chapter" data-level="2.2.5" data-path="bayesian-2.html"><a href="bayesian-2.html#prior-predictive-distributions-marginalization"><i class="fa fa-check"></i><b>2.2.5</b> Prior predictive distributions (Marginalization)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="bayesian-2.html"><a href="bayesian-2.html#markov-chains"><i class="fa fa-check"></i><b>2.3</b> Markov chains</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="bayesian-2.html"><a href="bayesian-2.html#definition"><i class="fa fa-check"></i><b>2.3.1</b> Definition</a></li>
+<li class="chapter" data-level="2.3.2" data-path="bayesian-2.html"><a href="bayesian-2.html#discrete-example"><i class="fa fa-check"></i><b>2.3.2</b> Discrete example</a></li>
+<li class="chapter" data-level="2.3.3" data-path="bayesian-2.html"><a href="bayesian-2.html#continuous-example"><i class="fa fa-check"></i><b>2.3.3</b> Continuous example</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bayesian</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bayesian---2" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Bayesian - 2</h1>
+<div id="components-of-bayesian-models" class="section level2">
+<h2><span class="header-section-number">2.1</span> Components of Bayesian models</h2>
+<p><span class="math display">\[y_i=\mu+\epsilon_i\]</span></p>
+<p>Where,</p>
+<p><span class="math display">\[\epsilon_i \sim N(0, \sigma^2)\]</span></p>
+<p><span class="math display">\[y_i \sim N(\mu, \sigma^2)\]</span> (Thus, <span class="math inline">\(y_i\)</span> is <span class="math inline">\(=\)</span> to a fixed <span class="math inline">\(\mu\)</span> plus with a <span class="math inline">\(\epsilon_i\)</span>, whereas <span class="math inline">\(y_i \sim N(\mu, \sigma^2)\)</span>. These two expressions are not exactly the same, but they are connected.)</p>
+<p><strong>Likelihood:</strong> <span class="math inline">\(P(y|\theta)\)</span> (<span class="math inline">\(P(y,\theta)=P(\theta)P(y|\theta)\)</span>)</p>
+<p><strong>Prior:</strong> <span class="math inline">\(P(\theta)\)</span></p>
+<p><strong>Posterior:</strong></p>
+<p><span class="math display">\[P(\theta|y)=\frac{P(\theta, y)}{P(y)}=\frac{P(\theta, y)}{\int P(\theta, y)d\theta}=\frac{P(\theta)P(y|\theta)}{\int P(\theta, y)d\theta}=\frac{P(\theta)P(y|\theta)}{\int P(\theta)P(y|\theta)d\theta}\]</span> <strong>Markts</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The only random variables in frequentist models are the data. In contrast, Bayesian paradigm also uses probability to describe one’s uncertainty about unknown model parameters.</p></li>
+<li><p>Consider the following model for binary outcome <span class="math inline">\(y\)</span>:</p></li>
+</ol>
+<p><span class="math inline">\(y_i|\theta_i \sim Bern (\theta_i), i=1,2,3...6\)</span></p>
+<p><span class="math inline">\(\theta_i |\alpha \sim Beta(a, b_0), i=1,2,3...6\)</span></p>
+<p><span class="math inline">\(\alpha \sim Exp(r_0)\)</span></p>
+<p>Thus, the joint distribution of all variable:</p>
+<p><span class="math display">\[\prod_{i=1}^{6}[\theta_i^{y_i}(1-\theta_i)^{1-y_i}\frac{\Gamma(a+b_0)}{\Gamma(a)\Gamma(b_0)}\theta_i^{a-1}(1-\theta_i)^{b_0-1}]r_0e^{-r_0 \alpha}\]</span> (Question: Why not write it as <span class="math inline">\(a_i\)</span>?)</p>
+</div>
+<div id="monte-carlo-estimation" class="section level2">
+<h2><span class="header-section-number">2.2</span> Monte Carlo Estimation</h2>
+<div id="mean-and-variance-application-of-central-limit-theorem" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Mean and Variance: Application of Central Limit Theorem</h3>
+<p>If we simulate 100 samples from a Gamma(2,1), what is the approximate distribution of the sample average <span class="math inline">\(\bar{x^*}=\frac{1}{100} \sum_{i=1}^{100} x_i^*\)</span>?</p>
+<p>As we know, based on the central limit theorem, the approximating distribution is normal with the mean equal to the sample mean, and the variance equal to the variance of the orignal variable divided by the sample size. We know that the mean for Gamma(2,1) is <span class="math inline">\(\frac{2}{1}=2\)</span> and variance is <span class="math inline">\(\frac{2}{1^2}=2\)</span>. Thus, we know that the mean for the distribution for <span class="math inline">\(\bar{x^*}\)</span> is 2, whereas the variance is <span class="math inline">\(\frac{2}{100}\)</span>. Thus, it is <span class="math inline">\(N(2,0.02)\)</span>.</p>
+<p>Thus, we can get the generalized formula as follows:</p>
+<p><span class="math display">\[\bar{\theta^*} \sim N(E(\theta), \frac{Var(\theta)}{m})\]</span> Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</span>, not <span class="math inline">\(\theta\)</span>. The approximate for the variance for <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\frac{1}{m}\sum(\theta_i^*-\bar{\theta^*})^2\)</span>.</p>
+<p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
+<span class="kw">mean</span>(sample_data_gamma)</code></pre></div>
+<pre><code>## [1] 1.990433</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
+<pre><code>## [1] 0.9819414</code></pre>
+<p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close the theoretical value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+mean_c&lt;-<span class="kw">c</span>()
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
+{mean_c[i]&lt;-<span class="kw">mean</span>(<span class="kw">rgamma</span>(<span class="dv">1000</span>,<span class="dv">4</span>,<span class="dv">2</span>))}
+<span class="kw">var</span>(mean_c)</code></pre></div>
+<pre><code>## [1] 0.001634891</code></pre>
+<p><strong>Side Note</strong></p>
+<p>Note that the definition of variance is:</p>
+<p><span class="math display">\[V(x)=E[(x-\mu)^2]\]</span></p>
+<p>Thus, we can calculate the variance using integral:</p>
+<p><span class="math display">\[V(x)=\int (x-\mu)^2 f(x)dx\]</span> When we using samples from the simulation, we will get the following:</p>
+<p><span class="math display">\[V(x)=\int (x-\mu)^2 f(x)dx= \frac{1}{m} \sum (x_i^*-\bar{x^*})^2\]</span> Thus, we can use <span class="math inline">\(Var\)</span> function in <span class="math inline">\(R\)</span> with simulated sample to calculate the variance.</p>
+</div>
+<div id="monte-carlo-error-standard-error" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Monte Carlo error (Standard Error)</h3>
+<p>For the <span class="math inline">\(\bar{x^*}\)</span>, we can use the CLT to approximate how accurate the Monte Carlo estimates are.</p>
+<p><span class="math display">\[\frac{SD(sample)}{\sqrt{m}}\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
+
+<span class="kw">hist</span>(sample_data_gamma, <span class="dt">freq=</span><span class="ot">FALSE</span>)
+<span class="kw">curve</span>(<span class="kw">dgamma</span>(<span class="dt">x=</span>x, <span class="dt">shape=</span><span class="dv">4</span>, <span class="dt">rate=</span><span class="dv">2</span>), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
+<pre><code>## [1] 0.9682145</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="kw">var</span>(sample_data_gamma))</code></pre></div>
+<pre><code>## [1] 0.9839789</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sample_data_gamma) </code></pre></div>
+<pre><code>## [1] 0.9839789</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sample_data_gamma) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10000</span>)</code></pre></div>
+<pre><code>## [1] 0.009839789</code></pre>
+<p>We can also calculate Standard Error for the probablity</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sample_data_gamma)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">se =<span class="st"> </span><span class="kw">sd</span>(sample_data_gamma<span class="op">&lt;</span><span class="dv">5</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10000</span>)
+se</code></pre></div>
+<pre><code>## [1] 0.0009547917</code></pre>
+</div>
+<div id="expected-value-and-probability" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Expected value and probability</h3>
+<p>If you know that <span class="math inline">\(\theta \sim Beta(5,3)\)</span>, what is the approximate for the <span class="math inline">\(E(\frac{\theta}{1-\theta})\)</span>? You can use the following R code to calculate it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data&lt;-<span class="kw">rbeta</span>(<span class="dv">1000</span>,<span class="dv">5</span>,<span class="dv">3</span>)
+<span class="kw">mean</span>(sample_data<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>sample_data))</code></pre></div>
+<pre><code>## [1] 2.789685</code></pre>
+<p>If you want to calculate the approximate for the probability that <span class="math inline">\(\frac{\theta}{1-\theta}\)</span> is greater 1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>((sample_data<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>sample_data))<span class="op">&gt;</span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 0.789</code></pre>
+</div>
+<div id="quantile" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Quantile</h3>
+<p>Use Monte Carlo to approximate the 0.3 quantile of N(0,1). Note that, the idea of quantile is to quantify the probability. Thus, the number we will get for 0.3 quantile if the value for the random variable’s cdf <span class="math inline">\(\int_{-\infty}^{quantile-number}dx\)</span>. As we can see below, <span class="math inline">\(quantile(sample_data2,0.3)\)</span> gets the result of -0.52, which is the same from the <span class="math inline">\(qnorm(0.3)\)</span>. Note that, the cdf of <span class="math inline">\(pnorm(-0.52)\)</span> will get the probablity of <span class="math inline">\(0.3\)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data2&lt;-<span class="kw">rnorm</span>(<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">1</span>)
+<span class="kw">quantile</span>(sample_data2,<span class="fl">0.3</span>)</code></pre></div>
+<pre><code>##        30% 
+## -0.5260847</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.3</span>)</code></pre></div>
+<pre><code>## [1] -0.5244005</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">0.52</span>)</code></pre></div>
+<pre><code>## [1] 0.3015318</code></pre>
+</div>
+<div id="prior-predictive-distributions-marginalization" class="section level3">
+<h3><span class="header-section-number">2.2.5</span> Prior predictive distributions (Marginalization)</h3>
+<p><span class="math display">\[y|\theta \sim Bin(10, \theta)\]</span> <span class="math display">\[\theta \sim Beta(2,2)\]</span></p>
+<p>Simulate:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\theta^*\)</span> from beta</p></li>
+<li><p>Given <span class="math inline">\(\theta\)</span>, draw <span class="math inline">\(y_i^* \sim Bin(10, \theta_i^*)\)</span></p></li>
+<li><p>Get pairs (<span class="math inline">\(y_i^*\)</span>,<span class="math inline">\(\theta_i^*\)</span>)</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m=<span class="dv">1000</span>
+
+y=<span class="kw">numeric</span>(m)
+phi=<span class="kw">numeric</span>(m)
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)
+{
+  phi[i]=<span class="kw">rbeta</span>(<span class="dv">1</span>,<span class="dt">shape1=</span><span class="dv">2</span>,<span class="dt">shape2 =</span> <span class="dv">2</span>)
+  y[i]=<span class="kw">rbinom</span>(<span class="dv">1</span>,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob =</span> phi[i])
+}
+
+<span class="co"># we can use vector method</span>
+
+phi=<span class="kw">rbeta</span>(m,<span class="dt">shape1 =</span> <span class="dv">2</span>,<span class="dt">shape2 =</span> <span class="dv">2</span>)
+y=<span class="kw">rbinom</span>(m,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob =</span> phi)
+<span class="kw">table</span>(y)<span class="op">/</span>m</code></pre></div>
+<pre><code>## y
+##     0     1     2     3     4     5     6     7     8     9    10 
+## 0.038 0.064 0.100 0.110 0.124 0.112 0.131 0.117 0.093 0.069 0.042</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The marginal distribution of y</span>
+<span class="kw">plot</span>(<span class="kw">table</span>(y)<span class="op">/</span>m)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Another way to plot </span>
+<span class="kw">plot</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(y)), <span class="dt">ylab=</span><span class="st">&quot;P(y)&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Marginal distribution of y&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the marginal expected value of y</span>
+<span class="kw">mean</span>(y)</code></pre></div>
+<pre><code>## [1] 5.04</code></pre>
+</div>
+</div>
+<div id="markov-chains" class="section level2">
+<h2><span class="header-section-number">2.3</span> Markov chains</h2>
+<div id="definition" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Definition</h3>
+<p>A sequence of random variable <span class="math inline">\(X_1, X_2,...,X_n\)</span>, with <span class="math inline">\(1, 2, ...,3\)</span> indicating the successitve points in time. Thus, based on the chain rule, we can write the following:</p>
+<p><span class="math display">\[p(X_1,X_2,...,X_n)=p(X_1)p(X_2|X_1)p(X_3|X_2,X_1)...p(X_n|X_{n-1},X_{n-2},...,X_2,X_1)\]</span></p>
+<p>For Markov chains, it puts an assumption, called Markov assumption: The random variable at the next time step only depends on the current variable. Mathematically,</p>
+<p><span class="math display">\[p(X_{t+1}|X_t,X_{t-1},...,X_2,X_1)=p(X_{t+1}|X_t)\]</span></p>
+<p>where,</p>
+<p><span class="math display">\[t=2, ...n\]</span></p>
+<p>Thus, we can write the expression above as follows.</p>
+<p><span class="math display">\[p(X_1,X_2,...,X_n)=p(X_1)p(X_2|X_1)p(X_3|X_2)P(X_4|X_3)...p(X_n|X_{n-1})\]</span></p>
+</div>
+<div id="discrete-example" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Discrete example</h3>
+<p>Suppose that you flip a coin. You have a set of number {1,2,3,4,5}. If it is head, you increase 1 in the next number (for instance, if you are 2 now, you will be get 3 in the next). In contrast, if it is tail, you will decrease the number (e.g., 2 is now and 1 is next). If is is 5, increase 1 will lead to 1. Logically, 1 and then it is reduced by 1, leading to 5.</p>
+</div>
+<div id="continuous-example" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Continuous example</h3>
+<p><span class="math display">\[p(X_{t+1}| X_t=x_t)=N(x_t,1)\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+n=<span class="dv">100</span>
+x=<span class="kw">numeric</span>(n)
+
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n)
+{x[i]=<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean=</span>x[i<span class="op">-</span><span class="dv">1</span>],<span class="dv">1</span>)}
+
+<span class="kw">plot.ts</span>(x)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bayesian-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/41-Bayesian2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
