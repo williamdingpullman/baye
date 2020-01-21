@@ -62,7 +62,7 @@ mean(sample_data_gamma)
 var(sample_data_gamma)
 ```
 
-The following R code is for the $\bar{\theta^*}$. As we can see, the variance is 0.0016, which is close the theoretical value of $\frac{1}{1000}=0.001$. 
+The following R code is for the $\bar{\theta^*}$. As we can see, the variance is 0.0016, which is close to the true value of $\frac{1}{1000}=0.001$. 
 ```{R}
 set.seed(123)
 mean_c<-c()
