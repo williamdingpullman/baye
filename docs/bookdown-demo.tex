@@ -714,7 +714,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.992828
+## [1] 1.988721
 \end{verbatim}
 
 \begin{Shaded}
@@ -724,7 +724,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9897022
+## [1] 0.9906702
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the
@@ -1038,6 +1038,193 @@ leading to 5.
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\subsection{Discrete example and transition
+matrix}\label{discrete-example-and-transition-matrix}
+
+For the discrete example above, we can write the following transition
+matrix. We know that \(p(X_{t+1}=5 | X_t=4)\) can be found in the 4th
+row, 5th column, namely 0.5.
+
+\[Q=\begin{bmatrix} 0 & 0.5 & 0 & 0 & 0.5 \\ 0.5 & 0 & 0.5 & 0 & 0\\ 0 & 0.5 & 0 & 0.5 & 0 \\ 0& 0 & 0.5& 0& 0.5\\ 0.5 & 0& 0 &0.5 & 0 \end{bmatrix}\]
+
+The transition matrix is especially useful when there are mutiple steps
+in the chain. such as \(p(X_{t+1}=5| X_t=4)\). It can be calculated as
+\(\sum_{k=1}^{5} p(X_{t+2}=3|X_{t+1}=k) \cdot p(X_{t+1}=k |X_t=1)\). We
+can use R code the impletement this.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Q =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{,}
+             \FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{,}
+             \FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{,}
+             \FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{,}
+             \FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{), }
+           \DataTypeTok{nrow=}\DecValTok{5}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{(jj<-Q }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,] 0.50 0.00 0.25 0.25 0.00
+## [2,] 0.00 0.50 0.00 0.25 0.25
+## [3,] 0.25 0.00 0.50 0.00 0.25
+## [4,] 0.25 0.25 0.00 0.50 0.00
+## [5,] 0.00 0.25 0.25 0.00 0.50
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{jj[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.25
+\end{verbatim}
+
+\subsection{Stationary distribution}\label{stationary-distribution}
+
+\textbf{Discrete Cases}\_
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Q5 =}\StringTok{ }\NormalTok{Q }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q }\CommentTok{# h=5 steps in the future}
+
+\NormalTok{Q5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1]    [,2]    [,3]    [,4]    [,5]
+## [1,] 0.06250 0.31250 0.15625 0.15625 0.31250
+## [2,] 0.31250 0.06250 0.31250 0.15625 0.15625
+## [3,] 0.15625 0.31250 0.06250 0.31250 0.15625
+## [4,] 0.15625 0.15625 0.31250 0.06250 0.31250
+## [5,] 0.31250 0.15625 0.15625 0.31250 0.06250
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{round}\NormalTok{(Q5, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]  [,2]  [,3]  [,4]  [,5]
+## [1,] 0.062 0.312 0.156 0.156 0.312
+## [2,] 0.312 0.062 0.312 0.156 0.156
+## [3,] 0.156 0.312 0.062 0.312 0.156
+## [4,] 0.156 0.156 0.312 0.062 0.312
+## [5,] 0.312 0.156 0.156 0.312 0.062
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Q30 =}\StringTok{ }\NormalTok{Q}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\OperatorTok{:}\DecValTok{30}\NormalTok{) \{}
+\NormalTok{  Q30 =}\StringTok{ }\NormalTok{Q30 }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q}
+\NormalTok{\}}
+\KeywordTok{round}\NormalTok{(Q30, }\DecValTok{3}\NormalTok{) }\CommentTok{# h=30 steps in the future}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]  [,2]  [,3]  [,4]  [,5]
+## [1,] 0.201 0.199 0.200 0.200 0.199
+## [2,] 0.199 0.201 0.199 0.200 0.200
+## [3,] 0.200 0.199 0.201 0.199 0.200
+## [4,] 0.200 0.200 0.199 0.201 0.199
+## [5,] 0.199 0.200 0.200 0.199 0.201
+\end{verbatim}
+
+Thus, as we can see, as the time gap gets bigger, the transition
+distributions appear to converge.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Q =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{,}
+             \FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{,}
+             \FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{,}
+             \FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{,}
+             \FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.0}\NormalTok{), }
+           \DataTypeTok{nrow=}\DecValTok{5}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{Q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  0.0  0.5  0.0  0.0  0.5
+## [2,]  0.5  0.0  0.5  0.0  0.0
+## [3,]  0.0  0.5  0.0  0.5  0.0
+## [4,]  0.0  0.0  0.5  0.0  0.5
+## [5,]  0.5  0.0  0.0  0.5  0.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{c}\NormalTok{(}\FloatTok{0.2}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.2}\NormalTok{) }\OperatorTok{%*%}\StringTok{ }\NormalTok{Q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  0.2  0.2  0.2  0.2  0.2
+\end{verbatim}
+
+The definition of stationary distribution of a chain:
+
+The initial state distribution for which performing a transition will
+not change the probability of ending up in any given state.
+
+For a Markov chain after many iterations, the samples can be used as a
+Monte Carlo sample from the stationary distribution. Thus, we can use
+Markov chains for Bayesian inference. In order to simulate from a
+complicated posterior distribution, we will set up and run a Markov
+chain whose stationary distribution is the posterior distribution. (Note
+that: stationary distribution doesn't always exist for any given Markov
+chain)
+
+\textbf{Continuous Cases}\_
+
+As we can see, the example shown earlier does not reach a stationary
+distribution. But, we can modify it to make it happen.
+
+\[p(X_{t+1}|X_t=x_t)=N(\phi x_t,1), -1<\phi<1\]
+
+It will reach a stationary distribution as long as \(-1<\phi<1\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n =}\StringTok{ }\DecValTok{1000}
+\NormalTok{x =}\StringTok{ }\KeywordTok{numeric}\NormalTok{(n)}
+\NormalTok{phi =}\StringTok{ }\OperatorTok{-}\FloatTok{0.5}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{  x[i] =}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{mean=}\NormalTok{phi}\OperatorTok{*}\NormalTok{x[i}\OperatorTok{-}\DecValTok{1}\NormalTok{], }\DataTypeTok{sd=}\FloatTok{1.0}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{plot.ts}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(x, }\DataTypeTok{mean=}\FloatTok{0.0}\NormalTok{, }\DataTypeTok{sd=}\KeywordTok{sqrt}\NormalTok{(}\FloatTok{1.0}\OperatorTok{/}\NormalTok{(}\FloatTok{1.0}\OperatorTok{-}\NormalTok{phi}\OperatorTok{^}\DecValTok{2}\NormalTok{))), }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\DataTypeTok{legend=}\StringTok{"theoretical stationary}\CharTok{\textbackslash{}n}\StringTok{distribution"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }\DataTypeTok{bty=}\StringTok{"n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-15-2.pdf}
+
+It will reach the stationary distribution of
+\(N(0, \frac{1}{1-\phi^2})\)
 
 \bibliography{book.bib,packages.bib}
 
