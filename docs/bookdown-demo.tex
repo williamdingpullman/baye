@@ -714,7 +714,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.979821
+## [1] 1.999504
 \end{verbatim}
 
 \begin{Shaded}
@@ -724,7 +724,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9944889
+## [1] 1.011875
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the
@@ -1322,6 +1322,67 @@ Thus,
 \[\pi = [0.612, 0.388]\]
 
 \[[0.612, 0.388]\begin{bmatrix} 0.365 & 0.635  \\ 1 & 0  \end{bmatrix}=[0.612, 0.388]\]
+
+\subsection{R code}\label{r-code}
+
+Random walk with normal likelihood, t prior
+
+A normal likelihood with known variance and \(t\) distribution for the
+prior on the unknown mean. Suppose the values are
+y=(1.2,1.4,−0.5,0.3,0.9,2.3,1.0,0.1,1.3,1.9). Since it is not conjugate,
+the posterior distribution is not in a standard form that we can easily
+sample. To get the posteior sample, we will set up a Markov chain whose
+stationary distribution is this posterior distribution.
+
+\[p(\mu|y_1,...,y_n) \propto \frac{exp[n(\bar{y}\mu-\mu^2/2)]}{1+\mu^2}\]
+
+The log-formed is as follows.
+
+\[log(g(\mu))=n(\bar{y}\mu-\mu^2/2)-log(1+\mu^2)\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lg =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(mu, n, ybar) \{}
+\NormalTok{  mu2 =}\StringTok{ }\NormalTok{mu}\OperatorTok{^}\DecValTok{2}
+\NormalTok{  n }\OperatorTok{*}\StringTok{ }\NormalTok{(ybar }\OperatorTok{*}\StringTok{ }\NormalTok{mu }\OperatorTok{-}\StringTok{ }\NormalTok{mu2 }\OperatorTok{/}\StringTok{ }\FloatTok{2.0}\NormalTok{) }\OperatorTok{-}\StringTok{ }\KeywordTok{log}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{mu2)}
+\NormalTok{\}}
+
+\NormalTok{mh =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n, ybar, n_iter, mu_init, cand_sd) \{}
+\NormalTok{  ## Random-Walk Metropolis-Hastings algorithm}
+  
+\NormalTok{  ## step 1, initialize}
+\NormalTok{  mu_out =}\StringTok{ }\KeywordTok{numeric}\NormalTok{(n_iter)}
+\NormalTok{  accpt =}\StringTok{ }\DecValTok{0}
+\NormalTok{  mu_now =}\StringTok{ }\NormalTok{mu_init}
+\NormalTok{  lg_now =}\StringTok{ }\KeywordTok{lg}\NormalTok{(}\DataTypeTok{mu=}\NormalTok{mu_now, }\DataTypeTok{n=}\NormalTok{n, }\DataTypeTok{ybar=}\NormalTok{ybar)}
+  
+\NormalTok{  ## step 2, iterate}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n_iter) \{}
+\NormalTok{    ## step 2a}
+\NormalTok{    mu_cand =}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{1}\NormalTok{, }\DataTypeTok{mean=}\NormalTok{mu_now, }\DataTypeTok{sd=}\NormalTok{cand_sd) }\CommentTok{# draw a candidate}
+    
+\NormalTok{    ## step 2b}
+\NormalTok{    lg_cand =}\StringTok{ }\KeywordTok{lg}\NormalTok{(}\DataTypeTok{mu=}\NormalTok{mu_cand, }\DataTypeTok{n=}\NormalTok{n, }\DataTypeTok{ybar=}\NormalTok{ybar) }\CommentTok{# evaluate log of g with the candidate}
+\NormalTok{    lalpha =}\StringTok{ }\NormalTok{lg_cand }\OperatorTok{-}\StringTok{ }\NormalTok{lg_now }\CommentTok{# log of acceptance ratio}
+\NormalTok{    alpha =}\StringTok{ }\KeywordTok{exp}\NormalTok{(lalpha)}
+    
+\NormalTok{    ## step 2c}
+\NormalTok{    u =}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{) }\CommentTok{# draw a uniform variable which will be less than alpha with probability min(1, alpha)}
+    \ControlFlowTok{if}\NormalTok{ (u }\OperatorTok{<}\StringTok{ }\NormalTok{alpha) \{ }\CommentTok{# then accept the candidate}
+\NormalTok{      mu_now =}\StringTok{ }\NormalTok{mu_cand}
+\NormalTok{      accpt =}\StringTok{ }\NormalTok{accpt }\OperatorTok{+}\StringTok{ }\DecValTok{1} \CommentTok{# to keep track of acceptance}
+\NormalTok{      lg_now =}\StringTok{ }\NormalTok{lg_cand}
+\NormalTok{    \}}
+    
+\NormalTok{    ## collect results}
+\NormalTok{    mu_out[i] =}\StringTok{ }\NormalTok{mu_now }\CommentTok{# save this iteration's value of mu}
+\NormalTok{  \}}
+  
+\NormalTok{  ## return a list of output}
+  \KeywordTok{list}\NormalTok{(}\DataTypeTok{mu=}\NormalTok{mu_out, }\DataTypeTok{accpt=}\NormalTok{accpt}\OperatorTok{/}\NormalTok{n_iter)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \bibliography{book.bib,packages.bib}
 
