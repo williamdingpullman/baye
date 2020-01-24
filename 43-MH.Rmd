@@ -1,0 +1,65 @@
+## Metropolis-Hastings
+
+### Procedure
+
+(1) Select initial value $\theta_0$
+
+(2) For $i=1,..., m$, repeat:
+    
+(a) Draw candidate $\theta^* \sim q(\theta^*|\theta_{i-1})$
+
+(b) $\alpha=\frac{g(\theta^*)/q(\theta^*|\theta_{i-1})}{g(\theta_{i-1})/q(\theta_{i-1}|\theta^*)}=\frac{g(\theta^*)q(\theta_{i-1}|\theta^*)}{g(\theta_{i-1})q(\theta^*|\theta_{i-1})}$
+
+(c) $\alpha \geq 1$ accept $\theta^*$ and set $\theta_i \leftarrow \theta^*$
+
+
+$0<\alpha < 1$ accept $\theta^*$ and set $\theta_i \leftarrow \theta^*$ with probablity $\alpha$
+
+
+### Demonstration
+
+Prior $P(loaded)=0.6$
+
+$$\begin{aligned} f(\theta | X) &= \frac{f(x|\theta) f(\theta)}{\sum_{\theta} f(x|\theta)f(\theta)} \\ &=\frac{\binom{5}{x} [(\frac{1}{2})^5 \times 0.4 \times I_{\{\theta=fair \}}+ (0.7)^x(0.3)^{5-x} \times 0.6 \times I_{\{\theta=loaded \}}]}{\binom{5}{x} [(\frac{1}{2})^5 \times 0.4 + (0.7)^x(0.3)^{5-x} \times 0.6]}  \end{aligned}$$
+
+$$\begin{aligned} f(\theta |X=2) &=\frac{0.0125 I_{\{\theta=fair \}}+0.0079 I_{\{\theta=loaded \}} }{0.0125+0.0079} \\ &= 0.612 I_{\{\theta=fair \}} + 0.388 I_{\{\theta=loaded \}} \end{aligned}$$
+Thus, we can say that:
+
+$$P(\theta=loaded | X=2)=0.388$$
+
+(1) Start at either $\theta_0=fair$ or $\theta_0=loaded$
+
+(2) For $i=1, ...m$
+
+(a) Propose candidate $\theta^*$ to be the other state such as $\theta_{i-1}$
+
+(b) 
+
+$$\alpha=\frac{g(\theta^*)/q(\theta^*|\theta_{i-1})}{g(\theta_{i-1})/q(\theta_{i-1}|\theta^*)}=\frac{f(x=2|\theta^*)/1}{f(x=2|\theta_{i-1})/1}$$
+
+If $\theta^*=loaded, \alpha=\frac{0.0794}{0.0125}=0.635$
+If $\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574$
+
+(c) if $\theta^*=fair, \alpha>1$, accept $\theta^*$ set $\theta_i=fair$
+
+if $\theta^*=loaded, \alpha>0.635$, accept $\theta^*$ set $\theta_i=loaded$ w.p. 0.635.
+
+Thus, we can get the following transition matrix:
+
+$$Q=\begin{bmatrix} 0.365 & 0.635  \\ 1 & 0  \end{bmatrix}$$
+
+This means that:
+
+(1) When $\theta_{i-1}$ is fair, $\theta_{i}$ is also fair, the $P=0.365$.
+
+(2) When $\theta_{i-1}$ is fair, $\theta_{i}$ is loaded, the $P=0.635$.
+
+(3) When $\theta_{i-1}$ is loaded, $\theta_{i}$ is fair, the $P=1$.
+
+(4) When $\theta_{i-1}$ is loaded, $\theta_{i}$ is loaded, the $P=0$.
+
+Thus, 
+
+$$\pi = [0.612, 0.388]$$
+
+$$[0.612, 0.388]\begin{bmatrix} 0.365 & 0.635  \\ 1 & 0  \end{bmatrix}=[0.612, 0.388]$$

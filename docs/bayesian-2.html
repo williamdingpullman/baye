@@ -154,6 +154,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.4" data-path="bayesian-2.html"><a href="bayesian-2.html#discrete-example-and-transition-matrix"><i class="fa fa-check"></i><b>2.3.4</b> Discrete example and transition matrix</a></li>
 <li class="chapter" data-level="2.3.5" data-path="bayesian-2.html"><a href="bayesian-2.html#stationary-distribution"><i class="fa fa-check"></i><b>2.3.5</b> Stationary distribution</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="bayesian-2.html"><a href="bayesian-2.html#metropolis-hastings"><i class="fa fa-check"></i><b>2.4</b> Metropolis-Hastings</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="bayesian-2.html"><a href="bayesian-2.html#procedure"><i class="fa fa-check"></i><b>2.4.1</b> Procedure</a></li>
+<li class="chapter" data-level="2.4.2" data-path="bayesian-2.html"><a href="bayesian-2.html#demonstration"><i class="fa fa-check"></i><b>2.4.2</b> Demonstration</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
@@ -208,9 +212,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
 <span class="kw">mean</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 1.993822</code></pre>
+<pre><code>## [1] 2.002277</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 1.026578</code></pre>
+<pre><code>## [1] 1.004435</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 mean_c&lt;-<span class="kw">c</span>()
@@ -433,6 +437,56 @@ phi =<span class="st"> </span><span class="op">-</span><span class="fl">0.5</spa
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend=</span><span class="st">&quot;theoretical stationary</span><span class="ch">\n</span><span class="st">distribution&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
 <p>It will reach the stationary distribution of <span class="math inline">\(N(0, \frac{1}{1-\phi^2})\)</span></p>
+
+</div>
+</div>
+<div id="metropolis-hastings" class="section level2">
+<h2><span class="header-section-number">2.4</span> Metropolis-Hastings</h2>
+<div id="procedure" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Procedure</h3>
+<ol style="list-style-type: decimal">
+<li><p>Select initial value <span class="math inline">\(\theta_0\)</span></p></li>
+<li><p>For <span class="math inline">\(i=1,..., m\)</span>, repeat:</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Draw candidate <span class="math inline">\(\theta^* \sim q(\theta^*|\theta_{i-1})\)</span></p></li>
+<li><p><span class="math inline">\(\alpha=\frac{g(\theta^*)/q(\theta^*|\theta_{i-1})}{g(\theta_{i-1})/q(\theta_{i-1}|\theta^*)}=\frac{g(\theta^*)q(\theta_{i-1}|\theta^*)}{g(\theta_{i-1})q(\theta^*|\theta_{i-1})}\)</span></p></li>
+<li><p><span class="math inline">\(\alpha \geq 1\)</span> accept <span class="math inline">\(\theta^*\)</span> and set <span class="math inline">\(\theta_i \leftarrow \theta^*\)</span></p></li>
+</ol>
+<p><span class="math inline">\(0&lt;\alpha &lt; 1\)</span> accept <span class="math inline">\(\theta^*\)</span> and set <span class="math inline">\(\theta_i \leftarrow \theta^*\)</span> with probablity <span class="math inline">\(\alpha\)</span></p>
+</div>
+<div id="demonstration" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Demonstration</h3>
+<p>Prior <span class="math inline">\(P(loaded)=0.6\)</span></p>
+<p><span class="math display">\[\begin{aligned} f(\theta | X) &amp;= \frac{f(x|\theta) f(\theta)}{\sum_{\theta} f(x|\theta)f(\theta)} \\ &amp;=\frac{\binom{5}{x} [(\frac{1}{2})^5 \times 0.4 \times I_{\{\theta=fair \}}+ (0.7)^x(0.3)^{5-x} \times 0.6 \times I_{\{\theta=loaded \}}]}{\binom{5}{x} [(\frac{1}{2})^5 \times 0.4 + (0.7)^x(0.3)^{5-x} \times 0.6]}  \end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned} f(\theta |X=2) &amp;=\frac{0.0125 I_{\{\theta=fair \}}+0.0079 I_{\{\theta=loaded \}} }{0.0125+0.0079} \\ &amp;= 0.612 I_{\{\theta=fair \}} + 0.388 I_{\{\theta=loaded \}} \end{aligned}\]</span> Thus, we can say that:</p>
+<p><span class="math display">\[P(\theta=loaded | X=2)=0.388\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Start at either <span class="math inline">\(\theta_0=fair\)</span> or <span class="math inline">\(\theta_0=loaded\)</span></p></li>
+<li><p>For <span class="math inline">\(i=1, ...m\)</span></p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Propose candidate <span class="math inline">\(\theta^*\)</span> to be the other state such as <span class="math inline">\(\theta_{i-1}\)</span></p></li>
+<li></li>
+</ol>
+<p><span class="math display">\[\alpha=\frac{g(\theta^*)/q(\theta^*|\theta_{i-1})}{g(\theta_{i-1})/q(\theta_{i-1}|\theta^*)}=\frac{f(x=2|\theta^*)/1}{f(x=2|\theta_{i-1})/1}\]</span></p>
+<p>If <span class="math inline">\(\theta^*=loaded, \alpha=\frac{0.0794}{0.0125}=0.635\)</span> If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574\)</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>if <span class="math inline">\(\theta^*=fair, \alpha&gt;1\)</span>, accept <span class="math inline">\(\theta^*\)</span> set <span class="math inline">\(\theta_i=fair\)</span></li>
+</ol>
+<p>if <span class="math inline">\(\theta^*=loaded, \alpha&gt;0.635\)</span>, accept <span class="math inline">\(\theta^*\)</span> set <span class="math inline">\(\theta_i=loaded\)</span> w.p. 0.635.</p>
+<p>Thus, we can get the following transition matrix:</p>
+<p><span class="math display">\[Q=\begin{bmatrix} 0.365 &amp; 0.635  \\ 1 &amp; 0  \end{bmatrix}\]</span></p>
+<p>This means that:</p>
+<ol style="list-style-type: decimal">
+<li><p>When <span class="math inline">\(\theta_{i-1}\)</span> is fair, <span class="math inline">\(\theta_{i}\)</span> is also fair, the <span class="math inline">\(P=0.365\)</span>.</p></li>
+<li><p>When <span class="math inline">\(\theta_{i-1}\)</span> is fair, <span class="math inline">\(\theta_{i}\)</span> is loaded, the <span class="math inline">\(P=0.635\)</span>.</p></li>
+<li><p>When <span class="math inline">\(\theta_{i-1}\)</span> is loaded, <span class="math inline">\(\theta_{i}\)</span> is fair, the <span class="math inline">\(P=1\)</span>.</p></li>
+<li><p>When <span class="math inline">\(\theta_{i-1}\)</span> is loaded, <span class="math inline">\(\theta_{i}\)</span> is loaded, the <span class="math inline">\(P=0\)</span>.</p></li>
+</ol>
+<p>Thus,</p>
+<p><span class="math display">\[\pi = [0.612, 0.388]\]</span></p>
+<p><span class="math display">\[[0.612, 0.388]\begin{bmatrix} 0.365 &amp; 0.635  \\ 1 &amp; 0  \end{bmatrix}=[0.612, 0.388]\]</span></p>
 
 </div>
 </div>
