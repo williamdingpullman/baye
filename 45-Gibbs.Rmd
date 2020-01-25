@@ -1,5 +1,31 @@
 ## Gibbs sampling
 
+### Basic idea
+
 $$p(\theta, \phi|y) \propto g(\theta, \phi)$$
 
 $$p(\theta, \phi|y) = p(\phi |y)p(\theta| \phi,y)$$
+
+
+__Notes__
+
+(1) $p(\theta| \phi,y)$ is called the full conditional for theta. 
+
+(2) We can update one parameter at a time. 
+
+
+$$p(\theta| \phi,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)$$
+
+$$p(\phi| \theta,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)$$
+
+
+### Gibbs sampling
+
+__Procedure__
+
+(1) Initialize $\theta_0$, $\phi_0$.
+
+(2) For $i=1,..., m$, repeat:
+
+     (a) Using $\phi_{i-1}$, draw $\theta_i \sim p(\theta|\phi_{i-1},y)$
+     (b) Using $\theta_i$, draw $\phi_i \sim p(\phi|\theta_i,y)$

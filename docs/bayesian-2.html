@@ -184,7 +184,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="bayesian-2.html"><a href="bayesian-2.html#demonstration"><i class="fa fa-check"></i><b>2.4.2</b> Demonstration</a></li>
 <li class="chapter" data-level="2.4.3" data-path="bayesian-2.html"><a href="bayesian-2.html#r-code"><i class="fa fa-check"></i><b>2.4.3</b> R code</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="bayesian-2.html"><a href="bayesian-2.html#gibbs-sampling"><i class="fa fa-check"></i><b>2.5</b> Gibbs sampling</a></li>
+<li class="chapter" data-level="2.5" data-path="bayesian-2.html"><a href="bayesian-2.html#gibbs-sampling"><i class="fa fa-check"></i><b>2.5</b> Gibbs sampling</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="bayesian-2.html"><a href="bayesian-2.html#basic-idea"><i class="fa fa-check"></i><b>2.5.1</b> Basic idea</a></li>
+<li class="chapter" data-level="2.5.2" data-path="bayesian-2.html"><a href="bayesian-2.html#gibbs-sampling-1"><i class="fa fa-check"></i><b>2.5.2</b> Gibbs sampling</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
@@ -243,9 +246,9 @@ Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">mean</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 2.007676</code></pre>
+<pre><code>## [1] 2.001362</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 1.016571</code></pre>
+<pre><code>## [1] 1.005841</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb7-2" title="2">mean_c&lt;-<span class="kw">c</span>()</a>
@@ -621,9 +624,31 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 </div>
 <div id="gibbs-sampling" class="section level2">
 <h2><span class="header-section-number">2.5</span> Gibbs sampling</h2>
+<div id="basic-idea" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Basic idea</h3>
 <p><span class="math display">\[p(\theta, \phi|y) \propto g(\theta, \phi)\]</span></p>
 <p><span class="math display">\[p(\theta, \phi|y) = p(\phi |y)p(\theta| \phi,y)\]</span></p>
+<p><strong>Notes</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(p(\theta| \phi,y)\)</span> is called the full conditional for theta.</p></li>
+<li><p>We can update one parameter at a time.</p></li>
+</ol>
+<p><span class="math display">\[p(\theta| \phi,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)\]</span></p>
+<p><span class="math display">\[p(\phi| \theta,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)\]</span></p>
+</div>
+<div id="gibbs-sampling-1" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Gibbs sampling</h3>
+<p><strong>Procedure</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Initialize <span class="math inline">\(\theta_0\)</span>, <span class="math inline">\(\phi_0\)</span>.</p></li>
+<li><p>For <span class="math inline">\(i=1,..., m\)</span>, repeat:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Using <span class="math inline">\(\phi_{i-1}\)</span>, draw <span class="math inline">\(\theta_i \sim p(\theta|\phi_{i-1},y)\)</span></li>
+<li>Using <span class="math inline">\(\theta_i\)</span>, draw <span class="math inline">\(\phi_i \sim p(\phi|\theta_i,y)\)</span></li>
+</ol></li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>

@@ -697,7 +697,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.0008
+## [1] 2.005993
 \end{verbatim}
 
 \begin{Shaded}
@@ -707,7 +707,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9934323
+## [1] 1.01498
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the variance is 0.0016, which is close to the true value of \(\frac{1}{1000}=0.001\).
@@ -1437,9 +1437,48 @@ In the following, I show the situation that the proposal distribution is not ran
 \hypertarget{gibbs-sampling}{%
 \section{Gibbs sampling}\label{gibbs-sampling}}
 
+\hypertarget{basic-idea}{%
+\subsection{Basic idea}\label{basic-idea}}
+
 \[p(\theta, \phi|y) \propto g(\theta, \phi)\]
 
 \[p(\theta, \phi|y) = p(\phi |y)p(\theta| \phi,y)\]
+
+\textbf{Notes}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(p(\theta| \phi,y)\) is called the full conditional for theta.
+\item
+  We can update one parameter at a time.
+\end{enumerate}
+
+\[p(\theta| \phi,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)\]
+
+\[p(\phi| \theta,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)\]
+
+\hypertarget{gibbs-sampling-1}{%
+\subsection{Gibbs sampling}\label{gibbs-sampling-1}}
+
+\textbf{Procedure}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Initialize \(\theta_0\), \(\phi_0\).
+\item
+  For \(i=1,..., m\), repeat:
+
+  \begin{enumerate}
+  \def\labelenumii{(\alph{enumii})}
+  \tightlist
+  \item
+    Using \(\phi_{i-1}\), draw \(\theta_i \sim p(\theta|\phi_{i-1},y)\)
+  \item
+    Using \(\theta_i\), draw \(\phi_i \sim p(\phi|\theta_i,y)\)
+  \end{enumerate}
+\end{enumerate}
 
 \bibliography{book.bib,packages.bib}
 
