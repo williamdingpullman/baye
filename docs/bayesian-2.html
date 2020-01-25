@@ -213,9 +213,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
 <span class="kw">mean</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 2.033662</code></pre>
+<pre><code>## [1] 2.006847</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 1.024785</code></pre>
+<pre><code>## [1] 1.028879</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 mean_c&lt;-<span class="kw">c</span>()
@@ -503,18 +503,18 @@ mu_now=<span class="dv">10</span>
 cand_sd=<span class="dv">5</span>
 y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)
 ybar=<span class="kw">mean</span>(y)
-
-mh&lt;-<span class="cf">function</span>(mu_now,type_MH,cand_sd)
-{
 m=<span class="dv">1000</span>
 n=<span class="kw">length</span>(y)
 mu_storage&lt;-<span class="kw">c</span>()
 mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_now)
 acceptance_count=<span class="dv">0</span>
 
+mh&lt;-<span class="cf">function</span>(mu_now,type_MH,cand_sd)
+{
+  
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)
 {
-  <span class="cf">if</span> (type_MH<span class="op">==</span><span class="st">&quot;randomwalk&quot;</span>)  <span class="co"># random walk</span>
+  <span class="cf">if</span> (type_MH<span class="op">==</span><span class="st">&quot;randomwalk&quot;</span>)  <span class="co"># random walk, as mean is updated with mu_now</span>
   {
   mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span>mu_now, <span class="dt">sd=</span>cand_sd)
   }
@@ -543,7 +543,7 @@ acceptance_count=<span class="dv">0</span>
       {mu_now=mu_now}
     }
 }
-
+<span class="co">#return the following</span>
 <span class="kw">list</span>(<span class="dt">mu=</span>mu_storage,<span class="dt">accpt=</span>acceptance_count<span class="op">/</span>m)
 }
 
