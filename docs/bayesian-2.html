@@ -213,9 +213,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
 <span class="kw">mean</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 1.982456</code></pre>
+<pre><code>## [1] 2.033662</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 0.9686572</code></pre>
+<pre><code>## [1] 1.024785</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 mean_c&lt;-<span class="kw">c</span>()
@@ -496,11 +496,8 @@ phi =<span class="st"> </span><span class="op">-</span><span class="fl">0.5</spa
 <p><span class="math display">\[p(\mu|y_1,...,y_n) \propto \frac{exp[n(\bar{y}\mu-\mu^2/2)]}{1+\mu^2}\]</span></p>
 <p><span class="math display">\[log(g(\mu))=n(\bar{y}\mu-\mu^2/2)-log(1+\mu^2)\]</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lg=<span class="cf">function</span>(mu, n, ybar)
-{
-  mu2=mu<span class="op">^</span><span class="dv">2</span>
-  n<span class="op">*</span>(ybar<span class="op">*</span>mu<span class="op">-</span>mu2<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">+</span>mu2)
-}
-
+{ mu2=mu<span class="op">^</span><span class="dv">2</span>
+  n<span class="op">*</span>(ybar<span class="op">*</span>mu<span class="op">-</span>mu2<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">+</span>mu2)}
 
 mu_now=<span class="dv">10</span>
 cand_sd=<span class="dv">5</span>
@@ -510,7 +507,6 @@ ybar=<span class="kw">mean</span>(y)
 mh&lt;-<span class="cf">function</span>(mu_now,type_MH,cand_sd)
 {
 m=<span class="dv">1000</span>
-
 n=<span class="kw">length</span>(y)
 mu_storage&lt;-<span class="kw">c</span>()
 mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_now)
@@ -528,8 +524,8 @@ acceptance_count=<span class="dv">0</span>
     {mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">3</span>, <span class="dt">sd=</span>cand_sd)}
     <span class="cf">else</span>
     {<span class="kw">print</span>(<span class="st">&quot;woring type of MH&quot;</span>)
-      <span class="cf">break</span>}
-      
+     <span class="cf">break</span>
+    }
   }
   
   lg_alpha=<span class="kw">lg</span>(mu_cand,<span class="dt">n=</span>n,<span class="dt">ybar =</span> ybar)<span class="op">-</span><span class="kw">lg</span>(mu_now,<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar)
@@ -546,7 +542,6 @@ acceptance_count=<span class="dv">0</span>
     <span class="cf">else</span>
       {mu_now=mu_now}
     }
-  
 }
 
 <span class="kw">list</span>(<span class="dt">mu=</span>mu_storage,<span class="dt">accpt=</span>acceptance_count<span class="op">/</span>m)
@@ -584,14 +579,8 @@ tt_<span class="dv">0</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">3</span><span class="op">$</span>accpt</code></pre></div>
 <pre><code>## [1] 0.016</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">4</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;hello&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.5</span>)</code></pre></div>
-<pre><code>## [1] &quot;woring type of MH&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">4</span></code></pre></div>
-<pre><code>## $mu
-## [1] 5
-## 
-## $accpt
-## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#tt_4&lt;-mh(mu_now=5,type_MH=&quot;hello&quot;,cand_sd=0.5)</span>
+<span class="co">#tt_4</span></code></pre></div>
 
 </div>
 </div>

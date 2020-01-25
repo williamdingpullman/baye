@@ -714,7 +714,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.994282
+## [1] 1.985827
 \end{verbatim}
 
 \begin{Shaded}
@@ -724,7 +724,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9987313
+## [1] 0.9729596
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the
@@ -1342,11 +1342,8 @@ posterior distribution.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{lg=}\ControlFlowTok{function}\NormalTok{(mu, n, ybar)}
-\NormalTok{\{}
-\NormalTok{  mu2=mu}\OperatorTok{^}\DecValTok{2}
-\NormalTok{  n}\OperatorTok{*}\NormalTok{(ybar}\OperatorTok{*}\NormalTok{mu}\OperatorTok{-}\NormalTok{mu2}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{-}\KeywordTok{log}\NormalTok{(}\DecValTok{1}\OperatorTok{+}\NormalTok{mu2)}
-\NormalTok{\}}
-
+\NormalTok{\{ mu2=mu}\OperatorTok{^}\DecValTok{2}
+\NormalTok{  n}\OperatorTok{*}\NormalTok{(ybar}\OperatorTok{*}\NormalTok{mu}\OperatorTok{-}\NormalTok{mu2}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{-}\KeywordTok{log}\NormalTok{(}\DecValTok{1}\OperatorTok{+}\NormalTok{mu2)\}}
 
 \NormalTok{mu_now=}\DecValTok{10}
 \NormalTok{cand_sd=}\DecValTok{5}
@@ -1356,7 +1353,6 @@ posterior distribution.
 \NormalTok{mh<-}\ControlFlowTok{function}\NormalTok{(mu_now,type_MH,cand_sd)}
 \NormalTok{\{}
 \NormalTok{m=}\DecValTok{1000}
-
 \NormalTok{n=}\KeywordTok{length}\NormalTok{(y)}
 \NormalTok{mu_storage<-}\KeywordTok{c}\NormalTok{()}
 \NormalTok{mu_storage<-}\KeywordTok{c}\NormalTok{(mu_storage,mu_now)}
@@ -1374,8 +1370,8 @@ posterior distribution.
 \NormalTok{    \{mu_cand =}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{1}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{3}\NormalTok{, }\DataTypeTok{sd=}\NormalTok{cand_sd)\}}
     \ControlFlowTok{else}
 \NormalTok{    \{}\KeywordTok{print}\NormalTok{(}\StringTok{"woring type of MH"}\NormalTok{)}
-      \ControlFlowTok{break}\NormalTok{\}}
-      
+     \ControlFlowTok{break}
+\NormalTok{    \}}
 \NormalTok{  \}}
   
 \NormalTok{  lg_alpha=}\KeywordTok{lg}\NormalTok{(mu_cand,}\DataTypeTok{n=}\NormalTok{n,}\DataTypeTok{ybar =}\NormalTok{ ybar)}\OperatorTok{-}\KeywordTok{lg}\NormalTok{(mu_now,}\DataTypeTok{n=}\NormalTok{n,}\DataTypeTok{ybar=}\NormalTok{ybar)}
@@ -1392,7 +1388,6 @@ posterior distribution.
     \ControlFlowTok{else}
 \NormalTok{      \{mu_now=mu_now\}}
 \NormalTok{    \}}
-  
 \NormalTok{\}}
 
 \KeywordTok{list}\NormalTok{(}\DataTypeTok{mu=}\NormalTok{mu_storage,}\DataTypeTok{accpt=}\NormalTok{acceptance_count}\OperatorTok{/}\NormalTok{m)}
@@ -1500,27 +1495,10 @@ setence of:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tt_}\DecValTok{4}\NormalTok{<-}\KeywordTok{mh}\NormalTok{(}\DataTypeTok{mu_now=}\DecValTok{5}\NormalTok{,}\DataTypeTok{type_MH=}\StringTok{"hello"}\NormalTok{,}\DataTypeTok{cand_sd=}\FloatTok{0.5}\NormalTok{)}
+\CommentTok{#tt_4<-mh(mu_now=5,type_MH="hello",cand_sd=0.5)}
+\CommentTok{#tt_4}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "woring type of MH"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tt_}\DecValTok{4}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## $mu
-## [1] 5
-## 
-## $accpt
-## [1] 0
-\end{verbatim}
 
 \bibliography{book.bib,packages.bib}
 

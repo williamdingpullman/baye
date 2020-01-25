@@ -9,13 +9,9 @@ $$log(g(\mu))=n(\bar{y}\mu-\mu^2/2)-log(1+\mu^2)$$
 
 
 ```{R}
-
 lg=function(mu, n, ybar)
-{
-  mu2=mu^2
-  n*(ybar*mu-mu2/2)-log(1+mu2)
-}
-
+{ mu2=mu^2
+  n*(ybar*mu-mu2/2)-log(1+mu2)}
 
 mu_now=10
 cand_sd=5
@@ -25,7 +21,6 @@ ybar=mean(y)
 mh<-function(mu_now,type_MH,cand_sd)
 {
 m=1000
-
 n=length(y)
 mu_storage<-c()
 mu_storage<-c(mu_storage,mu_now)
@@ -43,8 +38,8 @@ for (i in 1:m)
     {mu_cand = rnorm(n=1, mean=3, sd=cand_sd)}
     else
     {print("woring type of MH")
-      break}
-      
+     break
+    }
   }
   
   lg_alpha=lg(mu_cand,n=n,ybar = ybar)-lg(mu_now,n=n,ybar=ybar)
@@ -61,7 +56,6 @@ for (i in 1:m)
     else
       {mu_now=mu_now}
     }
-  
 }
 
 list(mu=mu_storage,accpt=acceptance_count/m)
@@ -79,7 +73,6 @@ tt_2<-mh(mu_now=5,type_MH="randomwalk",cand_sd=0.5)
 plot.ts(tt_2$mu)
 tt_2$accpt
 ```
-
 
 As we can see, when the variance is big, the acceptance rate is low. When the variance is low, in conrast, the acceptance rate is high. Note that, changing the mean does not change the acceptance rate too much. In the following, I plotted the prior, posteior, and the sample(i.e., $y$).
 
@@ -106,6 +99,6 @@ tt_3<-mh(mu_now=5,type_MH="independent",cand_sd=0.5)
 plot.ts(tt_3$mu)
 tt_3$accpt
 
-tt_4<-mh(mu_now=5,type_MH="hello",cand_sd=0.5)
-tt_4
+#tt_4<-mh(mu_now=5,type_MH="hello",cand_sd=0.5)
+#tt_4
 ```
