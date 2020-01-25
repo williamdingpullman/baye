@@ -1,0 +1,5 @@
+## Gibbs sampling
+
+$$p(\theta, \phi|y) \propto g(\theta, \phi)$$
+
+$$p(\theta, \phi|y) = p(\phi |y)p(\theta| \phi,y)$$

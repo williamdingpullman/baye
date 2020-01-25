@@ -697,7 +697,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.999014
+## [1] 2.0008
 \end{verbatim}
 
 \begin{Shaded}
@@ -707,7 +707,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.01426
+## [1] 0.9934323
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the variance is 0.0016, which is close to the true value of \(\frac{1}{1000}=0.001\).
@@ -1433,6 +1433,13 @@ In the following, I show the situation that the proposal distribution is not ran
 \CommentTok{#tt_4}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{gibbs-sampling}{%
+\section{Gibbs sampling}\label{gibbs-sampling}}
+
+\[p(\theta, \phi|y) \propto g(\theta, \phi)\]
+
+\[p(\theta, \phi|y) = p(\phi |y)p(\theta| \phi,y)\]
 
 \bibliography{book.bib,packages.bib}
 

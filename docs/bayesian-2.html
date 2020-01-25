@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="bayesian-2.html"><a href="bayesian-2.html#demonstration"><i class="fa fa-check"></i><b>2.4.2</b> Demonstration</a></li>
 <li class="chapter" data-level="2.4.3" data-path="bayesian-2.html"><a href="bayesian-2.html#r-code"><i class="fa fa-check"></i><b>2.4.3</b> R code</a></li>
 </ul></li>
+<li class="chapter" data-level="2.5" data-path="bayesian-2.html"><a href="bayesian-2.html#gibbs-sampling"><i class="fa fa-check"></i><b>2.5</b> Gibbs sampling</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
@@ -242,9 +243,9 @@ Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">mean</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 1.998665</code></pre>
+<pre><code>## [1] 2.007676</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 0.9973024</code></pre>
+<pre><code>## [1] 1.016571</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb7-2" title="2">mean_c&lt;-<span class="kw">c</span>()</a>
@@ -617,6 +618,12 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 <a class="sourceLine" id="cb67-2" title="2"><span class="co">#tt_4</span></a></code></pre></div>
 
 </div>
+</div>
+<div id="gibbs-sampling" class="section level2">
+<h2><span class="header-section-number">2.5</span> Gibbs sampling</h2>
+<p><span class="math display">\[p(\theta, \phi|y) \propto g(\theta, \phi)\]</span></p>
+<p><span class="math display">\[p(\theta, \phi|y) = p(\phi |y)p(\theta| \phi,y)\]</span></p>
+
 </div>
 </div>
             </section>
