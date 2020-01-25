@@ -83,7 +83,7 @@ plot(density(mu_keep),xlim=c(-3,6))
 curve(dt(x,df=1),lty=2,add = TRUE,col="red")
 legend("topright",legend=c("Prior t-distribution pdf", "Posterior pdf"), col=c("red","black"), lty=1, bty="n")
 points(ybar,0,pch=20)
-legend(1,1, legend="The black dot is the mean of y",bty="n")
+legend(1,1, legend="Black dot is the sample mean (y_hat)",bty="n")
 ```
 
 In the following, I show the situation that the proposal distribution is not random walk, but rather independent. That is, the mean for the normal distribution is fixed. Refer to the procedure of MH, there is a setence of:
