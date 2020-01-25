@@ -697,7 +697,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.005993
+## [1] 1.99267
 \end{verbatim}
 
 \begin{Shaded}
@@ -707,7 +707,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.01498
+## [1] 0.9673696
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the variance is 0.0016, which is close to the true value of \(\frac{1}{1000}=0.001\).
@@ -1458,10 +1458,8 @@ In the following, I show the situation that the proposal distribution is not ran
 
 \[p(\phi| \theta,y) \propto p(\theta, \phi|y) \propto g(\theta, \phi)\]
 
-\hypertarget{gibbs-sampling-1}{%
-\subsection{Gibbs sampling}\label{gibbs-sampling-1}}
-
-\textbf{Procedure}
+\hypertarget{procedure-1}{%
+\subsection{Procedure}\label{procedure-1}}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -1479,6 +1477,21 @@ In the following, I show the situation that the proposal distribution is not ran
     Using \(\theta_i\), draw \(\phi_i \sim p(\phi|\theta_i,y)\)
   \end{enumerate}
 \end{enumerate}
+
+\hypertarget{example}{%
+\subsection{Example}\label{example}}
+
+\[y_i|\mu, \sigma^2 \sim N(\mu, \sigma^2),i = 1, ...,n\]
+
+\[\mu \sim N(\mu_0,\sigma_0^2)\]
+
+\[\sigma^2 \sim IG(v_0,\beta_0)\]
+
+\[\begin{aligned} p(\mu, \sigma^2) &\propto p(y1,...,y_n| \mu, \sigma^2)p(\mu)p(\sigma^2) \\ &=\prod_{i=1}^n[N(y_i|\mu,\sigma^2)]N(\mu|\mu_0,\sigma_0^2)IG(\sigma^2|v_0,\beta_0)\\ &= \prod_{i=1}^n [\frac{1}{\sqrt{2\pi \sigma^2}} exp(-\frac{1}{2\sigma^2}(y_i-\mu)^2)] \cdot \frac{1}{\sqrt{2\pi \sigma_0^2}} exp(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2) \cdot \frac{\beta_0^{v_0}}{\Gamma(v_0)}(\sigma^2)^{-(v_0+1)}exp(-\frac{\beta_0}{\sigma^2}) \\ &\propto (\sigma^2)^{-\frac{n}{2}}exp[-\frac{1}{2\sigma^2} \sum_{i=1}^n(y_i-\mu)^2] \cdot exp[-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2] \cdot (\sigma^2)^{-(v_0+1)}exp[-\frac{\beta_0}{\sigma^2}] \end{aligned}\]
+
+The following the full conditoinal distribution:
+
+\[p(\mu| \sigma^2, y_1,...,y_n) \propto p(\mu,\sigma^2,y_1,...,y_n)\]
 
 \bibliography{book.bib,packages.bib}
 
