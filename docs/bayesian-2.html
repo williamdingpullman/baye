@@ -188,6 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.1" data-path="bayesian-2.html"><a href="bayesian-2.html#basic-idea"><i class="fa fa-check"></i><b>2.5.1</b> Basic idea</a></li>
 <li class="chapter" data-level="2.5.2" data-path="bayesian-2.html"><a href="bayesian-2.html#procedure-1"><i class="fa fa-check"></i><b>2.5.2</b> Procedure</a></li>
 <li class="chapter" data-level="2.5.3" data-path="bayesian-2.html"><a href="bayesian-2.html#example"><i class="fa fa-check"></i><b>2.5.3</b> Example</a></li>
+<li class="chapter" data-level="2.5.4" data-path="bayesian-2.html"><a href="bayesian-2.html#r-code-1"><i class="fa fa-check"></i><b>2.5.4</b> R code</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -247,9 +248,9 @@ Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">mean</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 2.0128</code></pre>
+<pre><code>## [1] 1.993125</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 1.036456</code></pre>
+<pre><code>## [1] 0.9918974</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb7-2" title="2">mean_c&lt;-<span class="kw">c</span>()</a>
@@ -655,7 +656,115 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 <p><span class="math display">\[\sigma^2 \sim IG(v_0,\beta_0)\]</span></p>
 <p><span class="math display">\[\begin{aligned} p(\mu, \sigma^2) &amp;\propto p(y1,...,y_n| \mu, \sigma^2)p(\mu)p(\sigma^2) \\ &amp;=\prod_{i=1}^n[N(y_i|\mu,\sigma^2)]N(\mu|\mu_0,\sigma_0^2)IG(\sigma^2|v_0,\beta_0)\\ &amp;= \prod_{i=1}^n [\frac{1}{\sqrt{2\pi \sigma^2}} exp(-\frac{1}{2\sigma^2}(y_i-\mu)^2)] \cdot \frac{1}{\sqrt{2\pi \sigma_0^2}} exp(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2) \\ &amp;\cdot \frac{\beta_0^{v_0}}{\Gamma(v_0)}(\sigma^2)^{-(v_0+1)}exp(-\frac{\beta_0}{\sigma^2}) \\ &amp;\propto (\sigma^2)^{-\frac{n}{2}}exp[-\frac{1}{2\sigma^2} \sum_{i=1}^n(y_i-\mu)^2] \cdot exp[-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2] \cdot (\sigma^2)^{-(v_0+1)}exp[-\frac{\beta_0}{\sigma^2}] \end{aligned}\]</span></p>
 <p>The following the full conditoinal distribution:</p>
-<p><span class="math display">\[p(\mu| \sigma^2, y_1,...,y_n) \propto p(\mu,\sigma^2,y_1,...,y_n)\]</span></p>
+<p><span class="math display">\[\begin{aligned} p(\mu| \sigma^2, y_1,...,y_n) &amp;\propto p(\mu,\sigma^2 | y_1,...,y_n)\\ &amp;\propto  exp(-\frac{1}{2\sigma^2}(y_i-\mu)^2) exp[-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2] \\ &amp;=exp[-\frac{1}{2\sigma^2}(y_i-\mu)^2-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2] \\ &amp;\propto N(\mu |\frac{n\bar{y}/\sigma^2+\mu_0/\sigma^2}{n/\sigma^2+1/\sigma_0^2},\frac{1}{n/\sigma^2+1/\sigma_0^2})\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned} p(\sigma^2| \mu, y_1,...,y_n) &amp;\propto p(\mu,\sigma^2 | y_1,...,y_n)\\ &amp;\propto  (\sigma^2)^{-\frac{n}{2}} exp(-\frac{1}{2\sigma^2}(y_i-\mu)^2) \cdot (\sigma^2)^{-(v_0+1)}exp[-\frac{\beta_0}{\sigma^2}]\\ &amp;= (\sigma^2)^{-(v_0+\frac{n}{2}+1)}exp[-\frac{1}{\sigma^2}(\beta_0+\frac{\sum_{i=1}^n(y_i-\mu)^2}{2})] \\ &amp;\propto IG(\sigma^2|v_0+\frac{n}{2},\beta_0+\frac{\sum_{i=1}^n(y_i-\mu)^2}{2})\end{aligned}\]</span></p>
+</div>
+<div id="r-code-1" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> R code</h3>
+<p>The following R code first will impletement the following for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> discussed above:</p>
+<p><span class="math display">\[p(\mu| \sigma^2, y_1,...,y_n) \propto  N(\mu |\frac{n\bar{y}/\sigma^2+\mu_0/\sigma^2}{n/\sigma^2+1/\sigma_0^2},\frac{1}{n/\sigma^2+1/\sigma_0^2}) \]</span>
+<span class="math display">\[ p(\sigma^2| \mu, y_1,...,y_n)  \propto IG(\sigma^2|v_0+\frac{n}{2},\beta_0+\frac{\sum_{i=1}^n(y_i-\mu)^2}{2})\]</span></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">update_mu&lt;-<span class="cf">function</span>(n,ybar, sig2,mu_<span class="dv">0</span>,sig2_<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb68-2" title="2">          {sig2_<span class="dv">1</span>=<span class="dv">1</span><span class="op">/</span>(n<span class="op">/</span>sig2<span class="op">+</span><span class="dv">1</span><span class="op">/</span>sig2_<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb68-3" title="3">           mu_<span class="dv">1</span>=sig2_<span class="dv">1</span><span class="op">*</span>(n<span class="op">*</span>ybar<span class="op">/</span>sig2<span class="op">+</span>mu_<span class="dv">0</span><span class="op">/</span>sig2_<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb68-4" title="4">           <span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">mean=</span>mu_<span class="dv">1</span>,<span class="dt">sd=</span><span class="kw">sqrt</span>(sig2_<span class="dv">1</span>))}</a>
+<a class="sourceLine" id="cb68-5" title="5"></a>
+<a class="sourceLine" id="cb68-6" title="6"></a>
+<a class="sourceLine" id="cb68-7" title="7"></a>
+<a class="sourceLine" id="cb68-8" title="8">update_sig2&lt;-<span class="cf">function</span>(n,y,mu,nu_<span class="dv">0</span>,beta_<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb68-9" title="9">         {nu_<span class="dv">1</span>=nu_<span class="dv">0</span><span class="op">+</span>n<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb68-10" title="10">         sumsq=<span class="kw">sum</span>((y<span class="op">-</span>mu)<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb68-11" title="11">         beta_<span class="dv">1</span>=beta_<span class="dv">0</span><span class="op">+</span>sumsq<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb68-12" title="12">         out_gamma=<span class="kw">rgamma</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">shape =</span>nu_<span class="dv">1</span>,<span class="dt">rate=</span>beta_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb68-13" title="13">         <span class="dv">1</span><span class="op">/</span>out_gamma}</a>
+<a class="sourceLine" id="cb68-14" title="14"></a>
+<a class="sourceLine" id="cb68-15" title="15"></a>
+<a class="sourceLine" id="cb68-16" title="16"></a>
+<a class="sourceLine" id="cb68-17" title="17">gibbs&lt;-<span class="cf">function</span>(y,n_iter,init,prior)</a>
+<a class="sourceLine" id="cb68-18" title="18">{</a>
+<a class="sourceLine" id="cb68-19" title="19">  ybar=<span class="kw">mean</span>(y)</a>
+<a class="sourceLine" id="cb68-20" title="20">  n=<span class="kw">length</span>(y)</a>
+<a class="sourceLine" id="cb68-21" title="21">  </a>
+<a class="sourceLine" id="cb68-22" title="22">  mu_out=<span class="kw">numeric</span>(n_iter)</a>
+<a class="sourceLine" id="cb68-23" title="23">  sig2_out=<span class="kw">numeric</span>(n_iter)</a>
+<a class="sourceLine" id="cb68-24" title="24">  </a>
+<a class="sourceLine" id="cb68-25" title="25">  mu_now=init<span class="op">$</span>mu</a>
+<a class="sourceLine" id="cb68-26" title="26">  </a>
+<a class="sourceLine" id="cb68-27" title="27">  <span class="co">## Gibbs sampler</span></a>
+<a class="sourceLine" id="cb68-28" title="28">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_iter)</a>
+<a class="sourceLine" id="cb68-29" title="29">  {</a>
+<a class="sourceLine" id="cb68-30" title="30">    sig2_now=<span class="kw">update_sig2</span>(<span class="dt">n=</span>n,<span class="dt">y=</span>y,<span class="dt">mu=</span>mu_now,<span class="dt">nu_0 =</span> prior<span class="op">$</span>nu_<span class="dv">0</span>,<span class="dt">beta_0 =</span> prior<span class="op">$</span>beta_<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb68-31" title="31">    mu_now=<span class="kw">update_mu</span>(<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar, <span class="dt">sig2 =</span> sig2_now,<span class="dt">mu_0 =</span> prior<span class="op">$</span>mu_<span class="dv">0</span>,<span class="dt">sig2_0 =</span> prior<span class="op">$</span>sig2_<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb68-32" title="32">    </a>
+<a class="sourceLine" id="cb68-33" title="33">    sig2_out[i]=sig2_now</a>
+<a class="sourceLine" id="cb68-34" title="34">    mu_out[i]=mu_now</a>
+<a class="sourceLine" id="cb68-35" title="35">  }</a>
+<a class="sourceLine" id="cb68-36" title="36">  <span class="kw">cbind</span>(<span class="dt">mu=</span>mu_out,<span class="dt">sig2=</span>sig2_out)</a>
+<a class="sourceLine" id="cb68-37" title="37">}</a>
+<a class="sourceLine" id="cb68-38" title="38"></a>
+<a class="sourceLine" id="cb68-39" title="39">y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)</a>
+<a class="sourceLine" id="cb68-40" title="40">ybar=<span class="kw">mean</span>(y)</a>
+<a class="sourceLine" id="cb68-41" title="41">n=<span class="kw">length</span>(y)</a>
+<a class="sourceLine" id="cb68-42" title="42"></a>
+<a class="sourceLine" id="cb68-43" title="43">prior=<span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb68-44" title="44">prior<span class="op">$</span>mu_<span class="dv">0</span>=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb68-45" title="45">prior<span class="op">$</span>sig2_<span class="dv">0</span>=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb68-46" title="46"></a>
+<a class="sourceLine" id="cb68-47" title="47">prior<span class="op">$</span>n_<span class="dv">0</span>=<span class="dv">2</span></a>
+<a class="sourceLine" id="cb68-48" title="48">prior<span class="op">$</span>s2_<span class="dv">0</span>=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb68-49" title="49">prior<span class="op">$</span>nu_<span class="dv">0</span>=prior<span class="op">$</span>n_<span class="dv">0</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb68-50" title="50">prior<span class="op">$</span>beta_<span class="dv">0</span>=prior<span class="op">$</span>n_<span class="dv">0</span><span class="op">*</span>prior<span class="op">$</span>s2_<span class="dv">0</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb68-51" title="51"></a>
+<a class="sourceLine" id="cb68-52" title="52"><span class="kw">hist</span>(y,<span class="dt">freq =</span> <span class="ot">FALSE</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb68-53" title="53"><span class="kw">curve</span>(<span class="kw">dnorm</span>(<span class="dt">x=</span>x,<span class="dt">mean=</span>prior<span class="op">$</span>mu_<span class="dv">0</span>,<span class="dt">sd=</span><span class="kw">sqrt</span>(prior<span class="op">$</span>sig2_<span class="dv">0</span>)),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb68-54" title="54"><span class="kw">points</span>(y,<span class="kw">rep</span>(<span class="dv">0</span>,n),<span class="dt">pch=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb68-55" title="55"><span class="kw">points</span>(ybar,<span class="dv">0</span>,<span class="dt">pch=</span><span class="dv">19</span>)</a>
+<a class="sourceLine" id="cb68-56" title="56"></a>
+<a class="sourceLine" id="cb68-57" title="57"><span class="kw">set.seed</span>(<span class="dv">53</span>)</a>
+<a class="sourceLine" id="cb68-58" title="58">init=<span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb68-59" title="59">init<span class="op">$</span>mu=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb68-60" title="60"></a>
+<a class="sourceLine" id="cb68-61" title="61">post=<span class="kw">gibbs</span>(<span class="dt">y=</span>y,<span class="dt">n_iter =</span> <span class="fl">1e3</span>,<span class="dt">init=</span>init,<span class="dt">prior=</span>prior)</a>
+<a class="sourceLine" id="cb68-62" title="62"><span class="kw">head</span>(post)</a></code></pre></div>
+<pre><code>##             mu      sig2
+## [1,] 0.3746992 1.5179144
+## [2,] 0.4900277 0.8532821
+## [3,] 0.2536817 1.4325174
+## [4,] 1.1378504 1.2337821
+## [5,] 1.0016641 0.8409815
+## [6,] 1.1576873 0.7926196</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">tail</span>(post)</a></code></pre></div>
+<pre><code>##                mu      sig2
+##  [995,] 0.7813494 0.5510765
+##  [996,] 0.9622221 0.7612775
+##  [997,] 0.8124813 0.4640000
+##  [998,] 0.9434455 0.8416027
+##  [999,] 0.9085257 0.8193501
+## [1000,] 0.9411790 0.9053170</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">library</span>(coda)</a></code></pre></div>
+<pre><code>## Warning: package &#39;coda&#39; was built under R version 3.6.1</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">plot</span>(<span class="kw">as.mcmc</span>(post))</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">summary</span>(<span class="kw">as.mcmc</span>(post))</a></code></pre></div>
+<pre><code>## 
+## Iterations = 1:1000
+## Thinning interval = 1 
+## Number of chains = 1 
+## Sample size per chain = 1000 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##        Mean     SD Naive SE Time-series SE
+## mu   0.9051 0.2868  0.00907        0.00907
+## sig2 0.9282 0.5177  0.01637        0.01810
+## 
+## 2. Quantiles for each variable:
+## 
+##        2.5%    25%    50%   75% 97.5%
+## mu   0.3024 0.7244 0.9089 1.090 1.481
+## sig2 0.3577 0.6084 0.8188 1.094 2.141</code></pre>
 
 </div>
 </div>
