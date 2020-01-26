@@ -52,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -192,6 +167,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="bayesian-2.html"><a href="bayesian-2.html#convergence"><i class="fa fa-check"></i><b>2.6</b> Convergence</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="bayesian-2.html"><a href="bayesian-2.html#autocorrelation"><i class="fa fa-check"></i><b>2.6.1</b> Autocorrelation</a></li>
+<li class="chapter" data-level="2.6.2" data-path="bayesian-2.html"><a href="bayesian-2.html#step-size-and-iteration-number"><i class="fa fa-check"></i><b>2.6.2</b> Step size and iteration number</a></li>
+<li class="chapter" data-level="2.6.3" data-path="bayesian-2.html"><a href="bayesian-2.html#effective-sample-size"><i class="fa fa-check"></i><b>2.6.3</b> Effective sample size</a></li>
+<li class="chapter" data-level="2.6.4" data-path="bayesian-2.html"><a href="bayesian-2.html#burn-in"><i class="fa fa-check"></i><b>2.6.4</b> Burn in</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -221,13 +199,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[y_i=\mu+\epsilon_i\]</span></p>
 <p>Where,</p>
 <p><span class="math display">\[\epsilon_i \sim N(0, \sigma^2)\]</span></p>
-<p><span class="math display">\[y_i \sim N(\mu, \sigma^2)\]</span>
-(Thus, <span class="math inline">\(y_i\)</span> is <span class="math inline">\(=\)</span> to a fixed <span class="math inline">\(\mu\)</span> plus with a <span class="math inline">\(\epsilon_i\)</span>, whereas <span class="math inline">\(y_i \sim N(\mu, \sigma^2)\)</span>. These two expressions are not exactly the same, but they are connected.)</p>
+<p><span class="math display">\[y_i \sim N(\mu, \sigma^2)\]</span> (Thus, <span class="math inline">\(y_i\)</span> is <span class="math inline">\(=\)</span> to a fixed <span class="math inline">\(\mu\)</span> plus with a <span class="math inline">\(\epsilon_i\)</span>, whereas <span class="math inline">\(y_i \sim N(\mu, \sigma^2)\)</span>. These two expressions are not exactly the same, but they are connected.)</p>
 <p><strong>Likelihood:</strong> <span class="math inline">\(P(y|\theta)\)</span> (<span class="math inline">\(P(y,\theta)=P(\theta)P(y|\theta)\)</span>)</p>
 <p><strong>Prior:</strong> <span class="math inline">\(P(\theta)\)</span></p>
 <p><strong>Posterior:</strong></p>
-<p><span class="math display">\[P(\theta|y)=\frac{P(\theta, y)}{P(y)}=\frac{P(\theta, y)}{\int P(\theta, y)d\theta}=\frac{P(\theta)P(y|\theta)}{\int P(\theta, y)d\theta}=\frac{P(\theta)P(y|\theta)}{\int P(\theta)P(y|\theta)d\theta}\]</span>
-<strong>Markts</strong></p>
+<p><span class="math display">\[P(\theta|y)=\frac{P(\theta, y)}{P(y)}=\frac{P(\theta, y)}{\int P(\theta, y)d\theta}=\frac{P(\theta)P(y|\theta)}{\int P(\theta, y)d\theta}=\frac{P(\theta)P(y|\theta)}{\int P(\theta)P(y|\theta)d\theta}\]</span> <strong>Markts</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>The only random variables in frequentist models are the data. In contrast, Bayesian paradigm also uses probability to describe one’s uncertainty about unknown model parameters.</p></li>
 <li><p>Consider the following model for binary outcome <span class="math inline">\(y\)</span>:</p></li>
@@ -236,8 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(\theta_i |\alpha \sim Beta(a, b_0), i=1,2,3...6\)</span></p>
 <p><span class="math inline">\(\alpha \sim Exp(r_0)\)</span></p>
 <p>Thus, the joint distribution of all variable:</p>
-<p><span class="math display">\[\prod_{i=1}^{6}[\theta_i^{y_i}(1-\theta_i)^{1-y_i}\frac{\Gamma(a+b_0)}{\Gamma(a)\Gamma(b_0)}\theta_i^{a-1}(1-\theta_i)^{b_0-1}]r_0e^{-r_0 \alpha}\]</span>
-(Question: Why not write it as <span class="math inline">\(a_i\)</span>?)</p>
+<p><span class="math display">\[\prod_{i=1}^{6}[\theta_i^{y_i}(1-\theta_i)^{1-y_i}\frac{\Gamma(a+b_0)}{\Gamma(a)\Gamma(b_0)}\theta_i^{a-1}(1-\theta_i)^{b_0-1}]r_0e^{-r_0 \alpha}\]</span> (Question: Why not write it as <span class="math inline">\(a_i\)</span>?)</p>
 </div>
 <div id="monte-carlo-estimation" class="section level2">
 <h2><span class="header-section-number">2.2</span> Monte Carlo Estimation</h2>
@@ -246,114 +221,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If we simulate 100 samples from a Gamma(2,1), what is the approximate distribution of the sample average <span class="math inline">\(\bar{x^*}=\frac{1}{100} \sum_{i=1}^{100} x_i^*\)</span>?</p>
 <p>As we know, based on the central limit theorem, the approximating distribution is normal with the mean equal to the sample mean, and the variance equal to the variance of the orignal variable divided by the sample size. We know that the mean for Gamma(2,1) is <span class="math inline">\(\frac{2}{1}=2\)</span> and variance is <span class="math inline">\(\frac{2}{1^2}=2\)</span>. Thus, we know that the mean for the distribution for <span class="math inline">\(\bar{x^*}\)</span> is 2, whereas the variance is <span class="math inline">\(\frac{2}{100}\)</span>. Thus, it is <span class="math inline">\(N(2,0.02)\)</span>.</p>
 <p>Thus, we can get the generalized formula as follows:</p>
-<p><span class="math display">\[\bar{\theta^*} \sim N(E(\theta), \frac{Var(\theta)}{m})\]</span>
-Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</span>, not <span class="math inline">\(\theta\)</span>. The approximate for the variance for <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\frac{1}{m}\sum(\theta_i^*-\bar{\theta^*})^2\)</span>.</p>
+<p><span class="math display">\[\bar{\theta^*} \sim N(E(\theta), \frac{Var(\theta)}{m})\]</span> Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</span>, not <span class="math inline">\(\theta\)</span>. The approximate for the variance for <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\frac{1}{m}\sum(\theta_i^*-\bar{\theta^*})^2\)</span>.</p>
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">mean</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 2.011747</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 1.012537</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
+<span class="kw">mean</span>(sample_data_gamma)</code></pre></div>
+<pre><code>## [1] 1.994413</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
+<pre><code>## [1] 0.9918095</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2">mean_c&lt;-<span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb7-4" title="4">{mean_c[i]&lt;-<span class="kw">mean</span>(<span class="kw">rgamma</span>(<span class="dv">1000</span>,<span class="dv">4</span>,<span class="dv">2</span>))}</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw">var</span>(mean_c)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+mean_c&lt;-<span class="kw">c</span>()
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
+{mean_c[i]&lt;-<span class="kw">mean</span>(<span class="kw">rgamma</span>(<span class="dv">1000</span>,<span class="dv">4</span>,<span class="dv">2</span>))}
+<span class="kw">var</span>(mean_c)</code></pre></div>
 <pre><code>## [1] 0.001634891</code></pre>
 <p><strong>Side Note</strong></p>
 <p>Note that the definition of variance is:</p>
 <p><span class="math display">\[V(x)=E[(x-\mu)^2]\]</span></p>
 <p>Thus, we can calculate the variance using integral:</p>
-<p><span class="math display">\[V(x)=\int (x-\mu)^2 f(x)dx\]</span>
-When we using samples from the simulation, we will get the following:</p>
-<p><span class="math display">\[V(x)=\int (x-\mu)^2 f(x)dx= \frac{1}{m} \sum (x_i^*-\bar{x^*})^2\]</span>
-Thus, we can use <span class="math inline">\(Var\)</span> function in <span class="math inline">\(R\)</span> with simulated sample to calculate the variance.</p>
+<p><span class="math display">\[V(x)=\int (x-\mu)^2 f(x)dx\]</span> When we using samples from the simulation, we will get the following:</p>
+<p><span class="math display">\[V(x)=\int (x-\mu)^2 f(x)dx= \frac{1}{m} \sum (x_i^*-\bar{x^*})^2\]</span> Thus, we can use <span class="math inline">\(Var\)</span> function in <span class="math inline">\(R\)</span> with simulated sample to calculate the variance.</p>
 </div>
 <div id="monte-carlo-error-standard-error" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Monte Carlo error (Standard Error)</h3>
 <p>For the <span class="math inline">\(\bar{x^*}\)</span>, we can use the CLT to approximate how accurate the Monte Carlo estimates are.</p>
 <p><span class="math display">\[\frac{SD(sample)}{\sqrt{m}}\]</span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb9-2" title="2">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb9-3" title="3"></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="kw">hist</span>(sample_data_gamma, <span class="dt">freq=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="kw">curve</span>(<span class="kw">dgamma</span>(<span class="dt">x=</span>x, <span class="dt">shape=</span><span class="dv">4</span>, <span class="dt">rate=</span><span class="dv">2</span>), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
+
+<span class="kw">hist</span>(sample_data_gamma, <span class="dt">freq=</span><span class="ot">FALSE</span>)
+<span class="kw">curve</span>(<span class="kw">dgamma</span>(<span class="dt">x=</span>x, <span class="dt">shape=</span><span class="dv">4</span>, <span class="dt">rate=</span><span class="dv">2</span>), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">var</span>(sample_data_gamma)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
 <pre><code>## [1] 0.9682145</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">sqrt</span>(<span class="kw">var</span>(sample_data_gamma))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="kw">var</span>(sample_data_gamma))</code></pre></div>
 <pre><code>## [1] 0.9839789</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">sd</span>(sample_data_gamma) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sample_data_gamma) </code></pre></div>
 <pre><code>## [1] 0.9839789</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">sd</span>(sample_data_gamma) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10000</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(sample_data_gamma) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10000</span>)</code></pre></div>
 <pre><code>## [1] 0.009839789</code></pre>
 <p>We can also calculate Standard Error for the probablity</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">hist</span>(sample_data_gamma)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sample_data_gamma)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">se =<span class="st"> </span><span class="kw">sd</span>(sample_data_gamma<span class="op">&lt;</span><span class="dv">5</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10000</span>)</a>
-<a class="sourceLine" id="cb19-2" title="2">se</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">se =<span class="st"> </span><span class="kw">sd</span>(sample_data_gamma<span class="op">&lt;</span><span class="dv">5</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">10000</span>)
+se</code></pre></div>
 <pre><code>## [1] 0.0009547917</code></pre>
 </div>
 <div id="expected-value-and-probability" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Expected value and probability</h3>
 <p>If you know that <span class="math inline">\(\theta \sim Beta(5,3)\)</span>, what is the approximate for the <span class="math inline">\(E(\frac{\theta}{1-\theta})\)</span>? You can use the following R code to calculate it.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">sample_data&lt;-<span class="kw">rbeta</span>(<span class="dv">1000</span>,<span class="dv">5</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="kw">mean</span>(sample_data<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>sample_data))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data&lt;-<span class="kw">rbeta</span>(<span class="dv">1000</span>,<span class="dv">5</span>,<span class="dv">3</span>)
+<span class="kw">mean</span>(sample_data<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>sample_data))</code></pre></div>
 <pre><code>## [1] 2.789685</code></pre>
 <p>If you want to calculate the approximate for the probability that <span class="math inline">\(\frac{\theta}{1-\theta}\)</span> is greater 1.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">mean</span>((sample_data<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>sample_data))<span class="op">&gt;</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>((sample_data<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>sample_data))<span class="op">&gt;</span><span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] 0.789</code></pre>
 </div>
 <div id="quantile" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Quantile</h3>
 <p>Use Monte Carlo to approximate the 0.3 quantile of N(0,1). Note that, the idea of quantile is to quantify the probability. Thus, the number we will get for 0.3 quantile if the value for the random variable’s cdf <span class="math inline">\(\int_{-\infty}^{quantile-number}dx\)</span>. As we can see below, <span class="math inline">\(quantile(sample_data2,0.3)\)</span> gets the result of -0.52, which is the same from the <span class="math inline">\(qnorm(0.3)\)</span>. Note that, the cdf of <span class="math inline">\(pnorm(-0.52)\)</span> will get the probablity of <span class="math inline">\(0.3\)</span>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">sample_data2&lt;-<span class="kw">rnorm</span>(<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="kw">quantile</span>(sample_data2,<span class="fl">0.3</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data2&lt;-<span class="kw">rnorm</span>(<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">1</span>)
+<span class="kw">quantile</span>(sample_data2,<span class="fl">0.3</span>)</code></pre></div>
 <pre><code>##        30% 
 ## -0.5260847</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.3</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.3</span>)</code></pre></div>
 <pre><code>## [1] -0.5244005</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">0.52</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">0.52</span>)</code></pre></div>
 <pre><code>## [1] 0.3015318</code></pre>
 </div>
 <div id="prior-predictive-distributions-marginalization" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> Prior predictive distributions (Marginalization)</h3>
-<p><span class="math display">\[y|\theta \sim Bin(10, \theta)\]</span>
-<span class="math display">\[\theta \sim Beta(2,2)\]</span></p>
+<p><span class="math display">\[y|\theta \sim Bin(10, \theta)\]</span> <span class="math display">\[\theta \sim Beta(2,2)\]</span></p>
 <p>Simulate:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\theta^*\)</span> from beta</p></li>
 <li><p>Given <span class="math inline">\(\theta\)</span>, draw <span class="math inline">\(y_i^* \sim Bin(10, \theta_i^*)\)</span></p></li>
 <li><p>Get pairs (<span class="math inline">\(y_i^*\)</span>,<span class="math inline">\(\theta_i^*\)</span>)</p></li>
 </ol>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">m=<span class="dv">1000</span></a>
-<a class="sourceLine" id="cb31-2" title="2"></a>
-<a class="sourceLine" id="cb31-3" title="3">y=<span class="kw">numeric</span>(m)</a>
-<a class="sourceLine" id="cb31-4" title="4">phi=<span class="kw">numeric</span>(m)</a>
-<a class="sourceLine" id="cb31-5" title="5"></a>
-<a class="sourceLine" id="cb31-6" title="6"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)</a>
-<a class="sourceLine" id="cb31-7" title="7">{</a>
-<a class="sourceLine" id="cb31-8" title="8">  phi[i]=<span class="kw">rbeta</span>(<span class="dv">1</span>,<span class="dt">shape1=</span><span class="dv">2</span>,<span class="dt">shape2 =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb31-9" title="9">  y[i]=<span class="kw">rbinom</span>(<span class="dv">1</span>,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob =</span> phi[i])</a>
-<a class="sourceLine" id="cb31-10" title="10">}</a>
-<a class="sourceLine" id="cb31-11" title="11"></a>
-<a class="sourceLine" id="cb31-12" title="12"><span class="co"># we can use vector method</span></a>
-<a class="sourceLine" id="cb31-13" title="13"></a>
-<a class="sourceLine" id="cb31-14" title="14">phi=<span class="kw">rbeta</span>(m,<span class="dt">shape1 =</span> <span class="dv">2</span>,<span class="dt">shape2 =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb31-15" title="15">y=<span class="kw">rbinom</span>(m,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob =</span> phi)</a>
-<a class="sourceLine" id="cb31-16" title="16"><span class="kw">table</span>(y)<span class="op">/</span>m</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m=<span class="dv">1000</span>
+
+y=<span class="kw">numeric</span>(m)
+phi=<span class="kw">numeric</span>(m)
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)
+{
+  phi[i]=<span class="kw">rbeta</span>(<span class="dv">1</span>,<span class="dt">shape1=</span><span class="dv">2</span>,<span class="dt">shape2 =</span> <span class="dv">2</span>)
+  y[i]=<span class="kw">rbinom</span>(<span class="dv">1</span>,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob =</span> phi[i])
+}
+
+<span class="co"># we can use vector method</span>
+
+phi=<span class="kw">rbeta</span>(m,<span class="dt">shape1 =</span> <span class="dv">2</span>,<span class="dt">shape2 =</span> <span class="dv">2</span>)
+y=<span class="kw">rbinom</span>(m,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob =</span> phi)
+<span class="kw">table</span>(y)<span class="op">/</span>m</code></pre></div>
 <pre><code>## y
 ##     0     1     2     3     4     5     6     7     8     9    10 
 ## 0.038 0.064 0.100 0.110 0.124 0.112 0.131 0.117 0.093 0.069 0.042</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co"># The marginal distribution of y</span></a>
-<a class="sourceLine" id="cb33-2" title="2"><span class="kw">plot</span>(<span class="kw">table</span>(y)<span class="op">/</span>m)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The marginal distribution of y</span>
+<span class="kw">plot</span>(<span class="kw">table</span>(y)<span class="op">/</span>m)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co"># Another way to plot </span></a>
-<a class="sourceLine" id="cb34-2" title="2"><span class="kw">plot</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(y)), <span class="dt">ylab=</span><span class="st">&quot;P(y)&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Marginal distribution of y&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Another way to plot </span>
+<span class="kw">plot</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(y)), <span class="dt">ylab=</span><span class="st">&quot;P(y)&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Marginal distribution of y&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="co"># the marginal expected value of y</span></a>
-<a class="sourceLine" id="cb35-2" title="2"><span class="kw">mean</span>(y)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the marginal expected value of y</span>
+<span class="kw">mean</span>(y)</code></pre></div>
 <pre><code>## [1] 5.04</code></pre>
 
 </div>
@@ -378,14 +349,14 @@ Thus, we can use <span class="math inline">\(Var\)</span> function in <span clas
 <div id="continuous-example" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Continuous example</h3>
 <p><span class="math display">\[p(X_{t+1}| X_t=x_t)=N(x_t,1)\]</span></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb37-2" title="2">n=<span class="dv">100</span></a>
-<a class="sourceLine" id="cb37-3" title="3">x=<span class="kw">numeric</span>(n)</a>
-<a class="sourceLine" id="cb37-4" title="4"></a>
-<a class="sourceLine" id="cb37-5" title="5"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n)</a>
-<a class="sourceLine" id="cb37-6" title="6">{x[i]=<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean=</span>x[i<span class="dv">-1</span>],<span class="dv">1</span>)}</a>
-<a class="sourceLine" id="cb37-7" title="7"></a>
-<a class="sourceLine" id="cb37-8" title="8"><span class="kw">plot.ts</span>(x)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+n=<span class="dv">100</span>
+x=<span class="kw">numeric</span>(n)
+
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n)
+{x[i]=<span class="kw">rnorm</span>(<span class="dv">1</span>,<span class="dt">mean=</span>x[i<span class="op">-</span><span class="dv">1</span>],<span class="dv">1</span>)}
+
+<span class="kw">plot.ts</span>(x)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <div id="discrete-example-and-transition-matrix" class="section level3">
@@ -393,47 +364,47 @@ Thus, we can use <span class="math inline">\(Var\)</span> function in <span clas
 <p>For the discrete example above, we can write the following transition matrix. We know that <span class="math inline">\(p(X_{t+1}=5 | X_t=4)\)</span> can be found in the 4th row, 5th column, namely 0.5.</p>
 <p><span class="math display">\[Q=\begin{bmatrix} 0 &amp; 0.5 &amp; 0 &amp; 0 &amp; 0.5 \\ 0.5 &amp; 0 &amp; 0.5 &amp; 0 &amp; 0\\ 0 &amp; 0.5 &amp; 0 &amp; 0.5 &amp; 0 \\ 0&amp; 0 &amp; 0.5&amp; 0&amp; 0.5\\ 0.5 &amp; 0&amp; 0 &amp;0.5 &amp; 0 \end{bmatrix}\]</span></p>
 <p>The transition matrix is especially useful when there are mutiple steps in the chain. such as <span class="math inline">\(p(X_{t+1}=5| X_t=4)\)</span>. It can be calculated as <span class="math inline">\(\sum_{k=1}^{5} p(X_{t+2}=3|X_{t+1}=k) \cdot p(X_{t+1}=k |X_t=1)\)</span>. We can use R code the impletement this.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">Q =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb38-2" title="2">             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb38-3" title="3">             <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb38-4" title="4">             <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb38-5" title="5">             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>), </a>
-<a class="sourceLine" id="cb38-6" title="6">           <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb38-7" title="7"></a>
-<a class="sourceLine" id="cb38-8" title="8">(jj&lt;-Q <span class="op">%*%</span><span class="st"> </span>Q)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,
+             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>,
+             <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>,
+             <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,
+             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>), 
+           <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
+
+(jj&lt;-Q <span class="op">%*%</span><span class="st"> </span>Q)</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,] 0.50 0.00 0.25 0.25 0.00
 ## [2,] 0.00 0.50 0.00 0.25 0.25
 ## [3,] 0.25 0.00 0.50 0.00 0.25
 ## [4,] 0.25 0.25 0.00 0.50 0.00
 ## [5,] 0.00 0.25 0.25 0.00 0.50</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">jj[<span class="dv">1</span>,<span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">jj[<span class="dv">1</span>,<span class="dv">3</span>]</code></pre></div>
 <pre><code>## [1] 0.25</code></pre>
 </div>
 <div id="stationary-distribution" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> Stationary distribution</h3>
 <p><strong>Discrete Cases</strong>_</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">Q5 =<span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="co"># h=5 steps in the future</span></a>
-<a class="sourceLine" id="cb42-2" title="2"></a>
-<a class="sourceLine" id="cb42-3" title="3">Q5</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q5 =<span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="op">%*%</span><span class="st"> </span>Q <span class="co"># h=5 steps in the future</span>
+
+Q5</code></pre></div>
 <pre><code>##         [,1]    [,2]    [,3]    [,4]    [,5]
 ## [1,] 0.06250 0.31250 0.15625 0.15625 0.31250
 ## [2,] 0.31250 0.06250 0.31250 0.15625 0.15625
 ## [3,] 0.15625 0.31250 0.06250 0.31250 0.15625
 ## [4,] 0.15625 0.15625 0.31250 0.06250 0.31250
 ## [5,] 0.31250 0.15625 0.15625 0.31250 0.06250</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">round</span>(Q5, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(Q5, <span class="dv">3</span>)</code></pre></div>
 <pre><code>##       [,1]  [,2]  [,3]  [,4]  [,5]
 ## [1,] 0.062 0.312 0.156 0.156 0.312
 ## [2,] 0.312 0.062 0.312 0.156 0.156
 ## [3,] 0.156 0.312 0.062 0.312 0.156
 ## [4,] 0.156 0.156 0.312 0.062 0.312
 ## [5,] 0.312 0.156 0.156 0.312 0.062</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">Q30 =<span class="st"> </span>Q</a>
-<a class="sourceLine" id="cb46-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">30</span>) {</a>
-<a class="sourceLine" id="cb46-3" title="3">  Q30 =<span class="st"> </span>Q30 <span class="op">%*%</span><span class="st"> </span>Q</a>
-<a class="sourceLine" id="cb46-4" title="4">}</a>
-<a class="sourceLine" id="cb46-5" title="5"><span class="kw">round</span>(Q30, <span class="dv">3</span>) <span class="co"># h=30 steps in the future</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q30 =<span class="st"> </span>Q
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">30</span>) {
+  Q30 =<span class="st"> </span>Q30 <span class="op">%*%</span><span class="st"> </span>Q
+}
+<span class="kw">round</span>(Q30, <span class="dv">3</span>) <span class="co"># h=30 steps in the future</span></code></pre></div>
 <pre><code>##       [,1]  [,2]  [,3]  [,4]  [,5]
 ## [1,] 0.201 0.199 0.200 0.200 0.199
 ## [2,] 0.199 0.201 0.199 0.200 0.200
@@ -441,20 +412,20 @@ Thus, we can use <span class="math inline">\(Var\)</span> function in <span clas
 ## [4,] 0.200 0.200 0.199 0.201 0.199
 ## [5,] 0.199 0.200 0.200 0.199 0.201</code></pre>
 <p>Thus, as we can see, as the time gap gets bigger, the transition distributions appear to converge.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">Q =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb48-2" title="2">             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb48-3" title="3">             <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>,</a>
-<a class="sourceLine" id="cb48-4" title="4">             <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb48-5" title="5">             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>), </a>
-<a class="sourceLine" id="cb48-6" title="6">           <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb48-7" title="7">Q</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,
+             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>,
+             <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>,
+             <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>,
+             <span class="fl">0.5</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">0.0</span>), 
+           <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
+Q</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]  0.0  0.5  0.0  0.0  0.5
 ## [2,]  0.5  0.0  0.5  0.0  0.0
 ## [3,]  0.0  0.5  0.0  0.5  0.0
 ## [4,]  0.0  0.0  0.5  0.0  0.5
 ## [5,]  0.5  0.0  0.0  0.5  0.0</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>) <span class="op">%*%</span><span class="st"> </span>Q</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>) <span class="op">%*%</span><span class="st"> </span>Q</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]  0.2  0.2  0.2  0.2  0.2</code></pre>
 <p>The definition of stationary distribution of a chain:</p>
@@ -464,19 +435,19 @@ Thus, we can use <span class="math inline">\(Var\)</span> function in <span clas
 <p>As we can see, the example shown earlier does not reach a stationary distribution. But, we can modify it to make it happen.</p>
 <p><span class="math display">\[p(X_{t+1}|X_t=x_t)=N(\phi x_t,1), -1&lt;\phi&lt;1\]</span></p>
 <p>It will reach a stationary distribution as long as <span class="math inline">\(-1&lt;\phi&lt;1\)</span>.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">n =<span class="st"> </span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb52-2" title="2">x =<span class="st"> </span><span class="kw">numeric</span>(n)</a>
-<a class="sourceLine" id="cb52-3" title="3">phi =<span class="st"> </span><span class="fl">-0.5</span></a>
-<a class="sourceLine" id="cb52-4" title="4"></a>
-<a class="sourceLine" id="cb52-5" title="5"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n) {</a>
-<a class="sourceLine" id="cb52-6" title="6">  x[i] =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean=</span>phi<span class="op">*</span>x[i<span class="dv">-1</span>], <span class="dt">sd=</span><span class="fl">1.0</span>)</a>
-<a class="sourceLine" id="cb52-7" title="7">}</a>
-<a class="sourceLine" id="cb52-8" title="8"></a>
-<a class="sourceLine" id="cb52-9" title="9"><span class="kw">plot.ts</span>(x)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n =<span class="st"> </span><span class="dv">1000</span>
+x =<span class="st"> </span><span class="kw">numeric</span>(n)
+phi =<span class="st"> </span><span class="op">-</span><span class="fl">0.5</span>
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>n) {
+  x[i] =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean=</span>phi<span class="op">*</span>x[i<span class="op">-</span><span class="dv">1</span>], <span class="dt">sd=</span><span class="fl">1.0</span>)
+}
+
+<span class="kw">plot.ts</span>(x)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="kw">hist</span>(x, <span class="dt">freq=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb53-2" title="2"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="fl">0.0</span>, <span class="dt">sd=</span><span class="kw">sqrt</span>(<span class="fl">1.0</span><span class="op">/</span>(<span class="fl">1.0</span><span class="op">-</span>phi<span class="op">^</span><span class="dv">2</span>))), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb53-3" title="3"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend=</span><span class="st">&quot;theoretical stationary</span><span class="ch">\n</span><span class="st">distribution&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(x, <span class="dt">freq=</span><span class="ot">FALSE</span>)
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="fl">0.0</span>, <span class="dt">sd=</span><span class="kw">sqrt</span>(<span class="fl">1.0</span><span class="op">/</span>(<span class="fl">1.0</span><span class="op">-</span>phi<span class="op">^</span><span class="dv">2</span>))), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend=</span><span class="st">&quot;theoretical stationary</span><span class="ch">\n</span><span class="st">distribution&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-2.png" width="672" /></p>
 <p>It will reach the stationary distribution of <span class="math inline">\(N(0, \frac{1}{1-\phi^2})\)</span></p>
 
@@ -501,8 +472,7 @@ Thus, we can use <span class="math inline">\(Var\)</span> function in <span clas
 <h3><span class="header-section-number">2.4.2</span> Demonstration</h3>
 <p>Prior <span class="math inline">\(P(loaded)=0.6\)</span></p>
 <p><span class="math display">\[\begin{aligned} f(\theta | X) &amp;= \frac{f(x|\theta) f(\theta)}{\sum_{\theta} f(x|\theta)f(\theta)} \\ &amp;=\frac{\binom{5}{x} [(\frac{1}{2})^5 \times 0.4 \times I_{\{\theta=fair \}}+ (0.7)^x(0.3)^{5-x} \times 0.6 \times I_{\{\theta=loaded \}}]}{\binom{5}{x} [(\frac{1}{2})^5 \times 0.4 + (0.7)^x(0.3)^{5-x} \times 0.6]}  \end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned} f(\theta |X=2) &amp;=\frac{0.0125 I_{\{\theta=fair \}}+0.0079 I_{\{\theta=loaded \}} }{0.0125+0.0079} \\ &amp;= 0.612 I_{\{\theta=fair \}} + 0.388 I_{\{\theta=loaded \}} \end{aligned}\]</span>
-Thus, we can say that:</p>
+<p><span class="math display">\[\begin{aligned} f(\theta |X=2) &amp;=\frac{0.0125 I_{\{\theta=fair \}}+0.0079 I_{\{\theta=loaded \}} }{0.0125+0.0079} \\ &amp;= 0.612 I_{\{\theta=fair \}} + 0.388 I_{\{\theta=loaded \}} \end{aligned}\]</span> Thus, we can say that:</p>
 <p><span class="math display">\[P(\theta=loaded | X=2)=0.388\]</span></p>
 <ol style="list-style-type: decimal">
 <li><p>Start at either <span class="math inline">\(\theta_0=fair\)</span> or <span class="math inline">\(\theta_0=loaded\)</span></p></li>
@@ -513,12 +483,11 @@ Thus, we can say that:</p>
 <li></li>
 </ol>
 <p><span class="math display">\[\alpha=\frac{g(\theta^*)/q(\theta^*|\theta_{i-1})}{g(\theta_{i-1})/q(\theta_{i-1}|\theta^*)}=\frac{f(x=2|\theta^*)/1}{f(x=2|\theta_{i-1})/1}\]</span></p>
-<p>If <span class="math inline">\(\theta^*=loaded, \alpha=\frac{0.0794}{0.0125}=0.635\)</span>
-If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574\)</span></p>
+<p>If <span class="math inline">\(\theta^*=loaded, \alpha=\frac{0.0794}{0.0125}=0.635\)</span> If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574\)</span></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>if <span class="math inline">\(\theta^*=fair, \alpha&gt;1\)</span>, accept <span class="math inline">\(\theta^*\)</span> set <span class="math inline">\(\theta_i=fair\)</span></li>
 </ol>
-<p>if <span class="math inline">\(\theta^*=loaded, \alpha&gt;0.635\)</span>, accept <span class="math inline">\(\theta^*\)</span> set <span class="math inline">\(\theta_i=loaded\)</span> w.p. 0.635.</p>
+<p>if <span class="math inline">\(\theta^*=loaded, \alpha&gt;0.635\)</span>, accept <span class="math inline">\(\theta^*\)</span> set <span class="math inline">\(\theta_i=loaded\)</span> w.p. 0.635.</p>
 <p>Thus, we can get the following transition matrix:</p>
 <p><span class="math display">\[Q=\begin{bmatrix} 0.365 &amp; 0.635  \\ 1 &amp; 0  \end{bmatrix}\]</span></p>
 <p>This means that:</p>
@@ -538,92 +507,92 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 <p>The data are the percent change in total personnel for n=10 companies (1.2,1.4,-0.5,0.3,0.9,2.3,1.0,0.1,1.3,1.9). We assume such changes follow a normal distribution with known variance (but mean is unknown). For the mean (i.e., <span class="math inline">\(\mu\)</span>), we assume it follows a t distribution (i.e., the prior for the <span class="math inline">\(\mu\)</span> is t-distribution).Since t-distribution prior is not conjugate to a normal distribution, the posterior distribution is not in a standard form that we can easily sample. Thus, we need to set up a Markov chain whose stationary distribution is the posterior distribution.</p>
 <p><span class="math display">\[p(\mu|y_1,...,y_n) \propto \frac{exp[n(\bar{y}\mu-\mu^2/2)]}{1+\mu^2}\]</span></p>
 <p><span class="math display">\[log(g(\mu))=n(\bar{y}\mu-\mu^2/2)-log(1+\mu^2)\]</span></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">lg=<span class="cf">function</span>(mu, n, ybar)</a>
-<a class="sourceLine" id="cb54-2" title="2">{ mu2=mu<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb54-3" title="3">  n<span class="op">*</span>(ybar<span class="op">*</span>mu<span class="op">-</span>mu2<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">+</span>mu2)}</a>
-<a class="sourceLine" id="cb54-4" title="4"></a>
-<a class="sourceLine" id="cb54-5" title="5">mu_now=<span class="dv">10</span></a>
-<a class="sourceLine" id="cb54-6" title="6">cand_sd=<span class="dv">5</span></a>
-<a class="sourceLine" id="cb54-7" title="7">y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)</a>
-<a class="sourceLine" id="cb54-8" title="8">ybar=<span class="kw">mean</span>(y)</a>
-<a class="sourceLine" id="cb54-9" title="9">m=<span class="dv">1000</span></a>
-<a class="sourceLine" id="cb54-10" title="10">n=<span class="kw">length</span>(y)</a>
-<a class="sourceLine" id="cb54-11" title="11">mu_storage&lt;-<span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb54-12" title="12">mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_now)</a>
-<a class="sourceLine" id="cb54-13" title="13">acceptance_count=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb54-14" title="14"></a>
-<a class="sourceLine" id="cb54-15" title="15">mh&lt;-<span class="cf">function</span>(mu_now,type_MH,cand_sd)</a>
-<a class="sourceLine" id="cb54-16" title="16">{</a>
-<a class="sourceLine" id="cb54-17" title="17">  </a>
-<a class="sourceLine" id="cb54-18" title="18"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)</a>
-<a class="sourceLine" id="cb54-19" title="19">{</a>
-<a class="sourceLine" id="cb54-20" title="20">  <span class="cf">if</span> (type_MH<span class="op">==</span><span class="st">&quot;randomwalk&quot;</span>)  <span class="co"># random walk, as mean is updated with mu_now</span></a>
-<a class="sourceLine" id="cb54-21" title="21">  {</a>
-<a class="sourceLine" id="cb54-22" title="22">  mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span>mu_now, <span class="dt">sd=</span>cand_sd)</a>
-<a class="sourceLine" id="cb54-23" title="23">  }</a>
-<a class="sourceLine" id="cb54-24" title="24">  <span class="cf">else</span></a>
-<a class="sourceLine" id="cb54-25" title="25">  {</a>
-<a class="sourceLine" id="cb54-26" title="26">    <span class="cf">if</span>(type_MH<span class="op">==</span><span class="st">&quot;independent&quot;</span>)  <span class="co"># independent, as mean is fixed</span></a>
-<a class="sourceLine" id="cb54-27" title="27">    {mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">3</span>, <span class="dt">sd=</span>cand_sd)}</a>
-<a class="sourceLine" id="cb54-28" title="28">    <span class="cf">else</span></a>
-<a class="sourceLine" id="cb54-29" title="29">    {<span class="kw">print</span>(<span class="st">&quot;woring type of MH&quot;</span>)</a>
-<a class="sourceLine" id="cb54-30" title="30">     <span class="cf">break</span></a>
-<a class="sourceLine" id="cb54-31" title="31">    }</a>
-<a class="sourceLine" id="cb54-32" title="32">  }</a>
-<a class="sourceLine" id="cb54-33" title="33">  </a>
-<a class="sourceLine" id="cb54-34" title="34">  lg_alpha=<span class="kw">lg</span>(mu_cand,<span class="dt">n=</span>n,<span class="dt">ybar =</span> ybar)<span class="op">-</span><span class="kw">lg</span>(mu_now,<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar)</a>
-<a class="sourceLine" id="cb54-35" title="35">  alpha=<span class="kw">exp</span>(lg_alpha)</a>
-<a class="sourceLine" id="cb54-36" title="36">  <span class="cf">if</span>(alpha<span class="op">&gt;</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb54-37" title="37">    {mu_now=mu_cand</a>
-<a class="sourceLine" id="cb54-38" title="38">    mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_cand)</a>
-<a class="sourceLine" id="cb54-39" title="39">    acceptance_count=acceptance_count<span class="op">+</span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb54-40" title="40">  <span class="cf">else</span></a>
-<a class="sourceLine" id="cb54-41" title="41">    {random_p=<span class="kw">runif</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb54-42" title="42">    <span class="cf">if</span>(alpha<span class="op">&gt;</span>random_p)</a>
-<a class="sourceLine" id="cb54-43" title="43">      {mu_now=mu_cand</a>
-<a class="sourceLine" id="cb54-44" title="44">      acceptance_count=acceptance_count<span class="op">+</span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb54-45" title="45">    <span class="cf">else</span></a>
-<a class="sourceLine" id="cb54-46" title="46">      {mu_now=mu_now}</a>
-<a class="sourceLine" id="cb54-47" title="47">    }</a>
-<a class="sourceLine" id="cb54-48" title="48">}</a>
-<a class="sourceLine" id="cb54-49" title="49"><span class="co">#return the following</span></a>
-<a class="sourceLine" id="cb54-50" title="50"><span class="kw">list</span>(<span class="dt">mu=</span>mu_storage,<span class="dt">accpt=</span>acceptance_count<span class="op">/</span>m)</a>
-<a class="sourceLine" id="cb54-51" title="51">}</a>
-<a class="sourceLine" id="cb54-52" title="52"></a>
-<a class="sourceLine" id="cb54-53" title="53">tt_<span class="dv">0</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb54-54" title="54"><span class="kw">plot.ts</span>(tt_<span class="dv">0</span><span class="op">$</span>mu)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lg=<span class="cf">function</span>(mu, n, ybar)
+{ mu2=mu<span class="op">^</span><span class="dv">2</span>
+  n<span class="op">*</span>(ybar<span class="op">*</span>mu<span class="op">-</span>mu2<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">+</span>mu2)}
+
+mu_now=<span class="dv">10</span>
+cand_sd=<span class="dv">5</span>
+y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)
+ybar=<span class="kw">mean</span>(y)
+m=<span class="dv">1000</span>
+n=<span class="kw">length</span>(y)
+mu_storage&lt;-<span class="kw">c</span>()
+mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_now)
+acceptance_count=<span class="dv">0</span>
+
+mh&lt;-<span class="cf">function</span>(mu_now,type_MH,cand_sd)
+{
+  
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)
+{
+  <span class="cf">if</span> (type_MH<span class="op">==</span><span class="st">&quot;randomwalk&quot;</span>)  <span class="co"># random walk, as mean is updated with mu_now</span>
+  {
+  mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span>mu_now, <span class="dt">sd=</span>cand_sd)
+  }
+  <span class="cf">else</span>
+  {
+    <span class="cf">if</span>(type_MH<span class="op">==</span><span class="st">&quot;independent&quot;</span>)  <span class="co"># independent, as mean is fixed</span>
+    {mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">3</span>, <span class="dt">sd=</span>cand_sd)}
+    <span class="cf">else</span>
+    {<span class="kw">print</span>(<span class="st">&quot;woring type of MH&quot;</span>)
+     <span class="cf">break</span>
+    }
+  }
+  
+  lg_alpha=<span class="kw">lg</span>(mu_cand,<span class="dt">n=</span>n,<span class="dt">ybar =</span> ybar)<span class="op">-</span><span class="kw">lg</span>(mu_now,<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar)
+  alpha=<span class="kw">exp</span>(lg_alpha)
+  <span class="cf">if</span>(alpha<span class="op">&gt;</span><span class="dv">1</span>)
+    {mu_now=mu_cand
+    mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_cand)
+    acceptance_count=acceptance_count<span class="op">+</span><span class="dv">1</span>}
+  <span class="cf">else</span>
+    {random_p=<span class="kw">runif</span>(<span class="dv">1</span>)
+    <span class="cf">if</span>(alpha<span class="op">&gt;</span>random_p)
+      {mu_now=mu_cand
+      acceptance_count=acceptance_count<span class="op">+</span><span class="dv">1</span>}
+    <span class="cf">else</span>
+      {mu_now=mu_now}
+    }
+}
+<span class="co">#return the following</span>
+<span class="kw">list</span>(<span class="dt">mu=</span>mu_storage,<span class="dt">accpt=</span>acceptance_count<span class="op">/</span>m)
+}
+
+tt_<span class="dv">0</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="dv">10</span>)
+<span class="kw">plot.ts</span>(tt_<span class="dv">0</span><span class="op">$</span>mu)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">tt_<span class="dv">0</span><span class="op">$</span>accpt</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">0</span><span class="op">$</span>accpt</code></pre></div>
 <pre><code>## [1] 0.039</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">tt_<span class="dv">1</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.005</span>)</a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="kw">plot.ts</span>(tt_<span class="dv">1</span><span class="op">$</span>mu)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">1</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.005</span>)
+<span class="kw">plot.ts</span>(tt_<span class="dv">1</span><span class="op">$</span>mu)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">tt_<span class="dv">1</span><span class="op">$</span>accpt</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">1</span><span class="op">$</span>accpt</code></pre></div>
 <pre><code>## [1] 0.931</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">tt_<span class="dv">2</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb60-2" title="2"><span class="kw">plot.ts</span>(tt_<span class="dv">2</span><span class="op">$</span>mu)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">2</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.5</span>)
+<span class="kw">plot.ts</span>(tt_<span class="dv">2</span><span class="op">$</span>mu)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-3.png" width="672" /></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">tt_<span class="dv">2</span><span class="op">$</span>accpt</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">2</span><span class="op">$</span>accpt</code></pre></div>
 <pre><code>## [1] 0.587</code></pre>
 <p>As we can see, when the variance is big, the acceptance rate is low. When the variance is low, in conrast, the acceptance rate is high. Note that, changing the mean does not change the acceptance rate too much. In the following, I plotted the prior, posteior, and the sample(i.e., <span class="math inline">\(y\)</span>).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">mu_keep&lt;-tt_<span class="dv">2</span><span class="op">$</span>mu[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]</a>
-<a class="sourceLine" id="cb63-2" title="2"><span class="kw">plot</span>(<span class="kw">density</span>(mu_keep),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>))</a>
-<a class="sourceLine" id="cb63-3" title="3"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dt">df=</span><span class="dv">1</span>),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">add =</span> <span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb63-4" title="4"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Prior t-distribution pdf&quot;</span>, <span class="st">&quot;Posterior pdf&quot;</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a>
-<a class="sourceLine" id="cb63-5" title="5"><span class="kw">points</span>(ybar,<span class="dv">0</span>,<span class="dt">pch=</span><span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb63-6" title="6"><span class="kw">legend</span>(<span class="dv">1</span>,<span class="dv">1</span>, <span class="dt">legend=</span><span class="st">&quot;Black dot is the sample mean (y_hat)&quot;</span>,<span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mu_keep&lt;-tt_<span class="dv">2</span><span class="op">$</span>mu[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]
+<span class="kw">plot</span>(<span class="kw">density</span>(mu_keep),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">6</span>))
+<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dt">df=</span><span class="dv">1</span>),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">add =</span> <span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Prior t-distribution pdf&quot;</span>, <span class="st">&quot;Posterior pdf&quot;</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)
+<span class="kw">points</span>(ybar,<span class="dv">0</span>,<span class="dt">pch=</span><span class="dv">20</span>)
+<span class="kw">legend</span>(<span class="dv">1</span>,<span class="dv">1</span>, <span class="dt">legend=</span><span class="st">&quot;Black dot is the sample mean (y_hat)&quot;</span>,<span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>In the following, I show the situation that the proposal distribution is not random walk, but rather independent. That is, the mean for the normal distribution is fixed. Refer to the procedure of MH, there is a setence of:</p>
 <center>
 <p><strong>Draw candidate <span class="math inline">\(\theta^* \sim q(\theta^*|\theta_{i-1})\)</span></strong></p>
 </center>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">tt_<span class="dv">3</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;independent&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb64-2" title="2"><span class="kw">plot.ts</span>(tt_<span class="dv">3</span><span class="op">$</span>mu)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">3</span>&lt;-<span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="dv">5</span>,<span class="dt">type_MH=</span><span class="st">&quot;independent&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.5</span>)
+<span class="kw">plot.ts</span>(tt_<span class="dv">3</span><span class="op">$</span>mu)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">tt_<span class="dv">3</span><span class="op">$</span>accpt</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt_<span class="dv">3</span><span class="op">$</span>accpt</code></pre></div>
 <pre><code>## [1] 0.016</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="co">#tt_4&lt;-mh(mu_now=5,type_MH=&quot;hello&quot;,cand_sd=0.5)</span></a>
-<a class="sourceLine" id="cb67-2" title="2"><span class="co">#tt_4</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#tt_4&lt;-mh(mu_now=5,type_MH=&quot;hello&quot;,cand_sd=0.5)</span>
+<span class="co">#tt_4</span></code></pre></div>
 
 </div>
 </div>
@@ -665,70 +634,69 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 <div id="r-code-1" class="section level3">
 <h3><span class="header-section-number">2.5.4</span> R code</h3>
 <p>The following R code first will impletement the following for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> discussed above:</p>
-<p><span class="math display">\[p(\mu| \sigma^2, y_1,...,y_n) \propto  N(\mu |\frac{n\bar{y}/\sigma^2+\mu_0/\sigma^2}{n/\sigma^2+1/\sigma_0^2},\frac{1}{n/\sigma^2+1/\sigma_0^2}) \]</span>
-<span class="math display">\[ p(\sigma^2| \mu, y_1,...,y_n)  \propto IG(\sigma^2|v_0+\frac{n}{2},\beta_0+\frac{\sum_{i=1}^n(y_i-\mu)^2}{2})\]</span></p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">update_mu&lt;-<span class="cf">function</span>(n,ybar, sig2,mu_<span class="dv">0</span>,sig2_<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb68-2" title="2">          {sig2_<span class="dv">1</span>=<span class="dv">1</span><span class="op">/</span>(n<span class="op">/</span>sig2<span class="op">+</span><span class="dv">1</span><span class="op">/</span>sig2_<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb68-3" title="3">           mu_<span class="dv">1</span>=sig2_<span class="dv">1</span><span class="op">*</span>(n<span class="op">*</span>ybar<span class="op">/</span>sig2<span class="op">+</span>mu_<span class="dv">0</span><span class="op">/</span>sig2_<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb68-4" title="4">           <span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">mean=</span>mu_<span class="dv">1</span>,<span class="dt">sd=</span><span class="kw">sqrt</span>(sig2_<span class="dv">1</span>))}</a>
-<a class="sourceLine" id="cb68-5" title="5"></a>
-<a class="sourceLine" id="cb68-6" title="6"></a>
-<a class="sourceLine" id="cb68-7" title="7"></a>
-<a class="sourceLine" id="cb68-8" title="8">update_sig2&lt;-<span class="cf">function</span>(n,y,mu,nu_<span class="dv">0</span>,beta_<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb68-9" title="9">         {nu_<span class="dv">1</span>=nu_<span class="dv">0</span><span class="op">+</span>n<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb68-10" title="10">         sumsq=<span class="kw">sum</span>((y<span class="op">-</span>mu)<span class="op">^</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb68-11" title="11">         beta_<span class="dv">1</span>=beta_<span class="dv">0</span><span class="op">+</span>sumsq<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb68-12" title="12">         out_gamma=<span class="kw">rgamma</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">shape =</span>nu_<span class="dv">1</span>,<span class="dt">rate=</span>beta_<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb68-13" title="13">         <span class="dv">1</span><span class="op">/</span>out_gamma}</a>
-<a class="sourceLine" id="cb68-14" title="14"></a>
-<a class="sourceLine" id="cb68-15" title="15"></a>
-<a class="sourceLine" id="cb68-16" title="16"></a>
-<a class="sourceLine" id="cb68-17" title="17">gibbs&lt;-<span class="cf">function</span>(y,n_iter,init,prior)</a>
-<a class="sourceLine" id="cb68-18" title="18">{</a>
-<a class="sourceLine" id="cb68-19" title="19">  ybar=<span class="kw">mean</span>(y)</a>
-<a class="sourceLine" id="cb68-20" title="20">  n=<span class="kw">length</span>(y)</a>
-<a class="sourceLine" id="cb68-21" title="21">  </a>
-<a class="sourceLine" id="cb68-22" title="22">  mu_out=<span class="kw">numeric</span>(n_iter)</a>
-<a class="sourceLine" id="cb68-23" title="23">  sig2_out=<span class="kw">numeric</span>(n_iter)</a>
-<a class="sourceLine" id="cb68-24" title="24">  </a>
-<a class="sourceLine" id="cb68-25" title="25">  mu_now=init<span class="op">$</span>mu</a>
-<a class="sourceLine" id="cb68-26" title="26">  </a>
-<a class="sourceLine" id="cb68-27" title="27">  <span class="co">## Gibbs sampler</span></a>
-<a class="sourceLine" id="cb68-28" title="28">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_iter)</a>
-<a class="sourceLine" id="cb68-29" title="29">  {</a>
-<a class="sourceLine" id="cb68-30" title="30">    sig2_now=<span class="kw">update_sig2</span>(<span class="dt">n=</span>n,<span class="dt">y=</span>y,<span class="dt">mu=</span>mu_now,<span class="dt">nu_0 =</span> prior<span class="op">$</span>nu_<span class="dv">0</span>,<span class="dt">beta_0 =</span> prior<span class="op">$</span>beta_<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb68-31" title="31">    mu_now=<span class="kw">update_mu</span>(<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar, <span class="dt">sig2 =</span> sig2_now,<span class="dt">mu_0 =</span> prior<span class="op">$</span>mu_<span class="dv">0</span>,<span class="dt">sig2_0 =</span> prior<span class="op">$</span>sig2_<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb68-32" title="32">    </a>
-<a class="sourceLine" id="cb68-33" title="33">    sig2_out[i]=sig2_now</a>
-<a class="sourceLine" id="cb68-34" title="34">    mu_out[i]=mu_now</a>
-<a class="sourceLine" id="cb68-35" title="35">  }</a>
-<a class="sourceLine" id="cb68-36" title="36">  <span class="kw">cbind</span>(<span class="dt">mu=</span>mu_out,<span class="dt">sig2=</span>sig2_out)</a>
-<a class="sourceLine" id="cb68-37" title="37">}</a>
-<a class="sourceLine" id="cb68-38" title="38"></a>
-<a class="sourceLine" id="cb68-39" title="39">y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)</a>
-<a class="sourceLine" id="cb68-40" title="40">ybar=<span class="kw">mean</span>(y)</a>
-<a class="sourceLine" id="cb68-41" title="41">n=<span class="kw">length</span>(y)</a>
-<a class="sourceLine" id="cb68-42" title="42"></a>
-<a class="sourceLine" id="cb68-43" title="43">prior=<span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb68-44" title="44">prior<span class="op">$</span>mu_<span class="dv">0</span>=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb68-45" title="45">prior<span class="op">$</span>sig2_<span class="dv">0</span>=<span class="dv">1</span></a>
-<a class="sourceLine" id="cb68-46" title="46"></a>
-<a class="sourceLine" id="cb68-47" title="47">prior<span class="op">$</span>n_<span class="dv">0</span>=<span class="dv">2</span></a>
-<a class="sourceLine" id="cb68-48" title="48">prior<span class="op">$</span>s2_<span class="dv">0</span>=<span class="dv">1</span></a>
-<a class="sourceLine" id="cb68-49" title="49">prior<span class="op">$</span>nu_<span class="dv">0</span>=prior<span class="op">$</span>n_<span class="dv">0</span><span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb68-50" title="50">prior<span class="op">$</span>beta_<span class="dv">0</span>=prior<span class="op">$</span>n_<span class="dv">0</span><span class="op">*</span>prior<span class="op">$</span>s2_<span class="dv">0</span><span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb68-51" title="51"></a>
-<a class="sourceLine" id="cb68-52" title="52"><span class="kw">hist</span>(y,<span class="dt">freq =</span> <span class="ot">FALSE</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb68-53" title="53"><span class="kw">curve</span>(<span class="kw">dnorm</span>(<span class="dt">x=</span>x,<span class="dt">mean=</span>prior<span class="op">$</span>mu_<span class="dv">0</span>,<span class="dt">sd=</span><span class="kw">sqrt</span>(prior<span class="op">$</span>sig2_<span class="dv">0</span>)),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb68-54" title="54"><span class="kw">points</span>(y,<span class="kw">rep</span>(<span class="dv">0</span>,n),<span class="dt">pch=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb68-55" title="55"><span class="kw">points</span>(ybar,<span class="dv">0</span>,<span class="dt">pch=</span><span class="dv">19</span>)</a>
-<a class="sourceLine" id="cb68-56" title="56"></a>
-<a class="sourceLine" id="cb68-57" title="57"><span class="kw">set.seed</span>(<span class="dv">53</span>)</a>
-<a class="sourceLine" id="cb68-58" title="58">init=<span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb68-59" title="59">init<span class="op">$</span>mu=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb68-60" title="60"></a>
-<a class="sourceLine" id="cb68-61" title="61">post=<span class="kw">gibbs</span>(<span class="dt">y=</span>y,<span class="dt">n_iter =</span> <span class="fl">1e3</span>,<span class="dt">init=</span>init,<span class="dt">prior=</span>prior)</a>
-<a class="sourceLine" id="cb68-62" title="62"><span class="kw">head</span>(post)</a></code></pre></div>
+<p><span class="math display">\[p(\mu| \sigma^2, y_1,...,y_n) \propto  N(\mu |\frac{n\bar{y}/\sigma^2+\mu_0/\sigma^2}{n/\sigma^2+1/\sigma_0^2},\frac{1}{n/\sigma^2+1/\sigma_0^2}) \]</span> <span class="math display">\[ p(\sigma^2| \mu, y_1,...,y_n)  \propto IG(\sigma^2|v_0+\frac{n}{2},\beta_0+\frac{\sum_{i=1}^n(y_i-\mu)^2}{2})\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">update_mu&lt;-<span class="cf">function</span>(n,ybar, sig2,mu_<span class="dv">0</span>,sig2_<span class="dv">0</span>)
+          {sig2_<span class="dv">1</span>=<span class="dv">1</span><span class="op">/</span>(n<span class="op">/</span>sig2<span class="op">+</span><span class="dv">1</span><span class="op">/</span>sig2_<span class="dv">0</span>)
+           mu_<span class="dv">1</span>=sig2_<span class="dv">1</span><span class="op">*</span>(n<span class="op">*</span>ybar<span class="op">/</span>sig2<span class="op">+</span>mu_<span class="dv">0</span><span class="op">/</span>sig2_<span class="dv">0</span>)
+           <span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">mean=</span>mu_<span class="dv">1</span>,<span class="dt">sd=</span><span class="kw">sqrt</span>(sig2_<span class="dv">1</span>))}
+
+
+
+update_sig2&lt;-<span class="cf">function</span>(n,y,mu,nu_<span class="dv">0</span>,beta_<span class="dv">0</span>)
+         {nu_<span class="dv">1</span>=nu_<span class="dv">0</span><span class="op">+</span>n<span class="op">/</span><span class="dv">2</span>
+         sumsq=<span class="kw">sum</span>((y<span class="op">-</span>mu)<span class="op">^</span><span class="dv">2</span>)
+         beta_<span class="dv">1</span>=beta_<span class="dv">0</span><span class="op">+</span>sumsq<span class="op">/</span><span class="dv">2</span>
+         out_gamma=<span class="kw">rgamma</span>(<span class="dt">n=</span><span class="dv">1</span>,<span class="dt">shape =</span>nu_<span class="dv">1</span>,<span class="dt">rate=</span>beta_<span class="dv">1</span>)
+         <span class="dv">1</span><span class="op">/</span>out_gamma}
+
+
+
+gibbs&lt;-<span class="cf">function</span>(y,n_iter,init,prior)
+{
+  ybar=<span class="kw">mean</span>(y)
+  n=<span class="kw">length</span>(y)
+  
+  mu_out=<span class="kw">numeric</span>(n_iter)
+  sig2_out=<span class="kw">numeric</span>(n_iter)
+  
+  mu_now=init<span class="op">$</span>mu
+  
+  ## Gibbs sampler
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_iter)
+  {
+    sig2_now=<span class="kw">update_sig2</span>(<span class="dt">n=</span>n,<span class="dt">y=</span>y,<span class="dt">mu=</span>mu_now,<span class="dt">nu_0 =</span> prior<span class="op">$</span>nu_<span class="dv">0</span>,<span class="dt">beta_0 =</span> prior<span class="op">$</span>beta_<span class="dv">0</span>)
+    mu_now=<span class="kw">update_mu</span>(<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar, <span class="dt">sig2 =</span> sig2_now,<span class="dt">mu_0 =</span> prior<span class="op">$</span>mu_<span class="dv">0</span>,<span class="dt">sig2_0 =</span> prior<span class="op">$</span>sig2_<span class="dv">0</span>)
+    
+    sig2_out[i]=sig2_now
+    mu_out[i]=mu_now
+  }
+  <span class="kw">cbind</span>(<span class="dt">mu=</span>mu_out,<span class="dt">sig2=</span>sig2_out)
+}
+
+y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)
+ybar=<span class="kw">mean</span>(y)
+n=<span class="kw">length</span>(y)
+
+prior=<span class="kw">list</span>()
+prior<span class="op">$</span>mu_<span class="dv">0</span>=<span class="dv">0</span>
+prior<span class="op">$</span>sig2_<span class="dv">0</span>=<span class="dv">1</span>
+
+prior<span class="op">$</span>n_<span class="dv">0</span>=<span class="dv">2</span>
+prior<span class="op">$</span>s2_<span class="dv">0</span>=<span class="dv">1</span>
+prior<span class="op">$</span>nu_<span class="dv">0</span>=prior<span class="op">$</span>n_<span class="dv">0</span><span class="op">/</span><span class="dv">2</span>
+prior<span class="op">$</span>beta_<span class="dv">0</span>=prior<span class="op">$</span>n_<span class="dv">0</span><span class="op">*</span>prior<span class="op">$</span>s2_<span class="dv">0</span><span class="op">/</span><span class="dv">2</span>
+
+<span class="kw">hist</span>(y,<span class="dt">freq =</span> <span class="ot">FALSE</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>))
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(<span class="dt">x=</span>x,<span class="dt">mean=</span>prior<span class="op">$</span>mu_<span class="dv">0</span>,<span class="dt">sd=</span><span class="kw">sqrt</span>(prior<span class="op">$</span>sig2_<span class="dv">0</span>)),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">points</span>(y,<span class="kw">rep</span>(<span class="dv">0</span>,n),<span class="dt">pch=</span><span class="dv">1</span>)
+<span class="kw">points</span>(ybar,<span class="dv">0</span>,<span class="dt">pch=</span><span class="dv">19</span>)
+
+<span class="kw">set.seed</span>(<span class="dv">53</span>)
+init=<span class="kw">list</span>()
+init<span class="op">$</span>mu=<span class="dv">0</span>
+
+post=<span class="kw">gibbs</span>(<span class="dt">y=</span>y,<span class="dt">n_iter =</span> <span class="fl">1e3</span>,<span class="dt">init=</span>init,<span class="dt">prior=</span>prior)
+<span class="kw">head</span>(post)</code></pre></div>
 <pre><code>##             mu      sig2
 ## [1,] 0.3746992 1.5179144
 ## [2,] 0.4900277 0.8532821
@@ -736,7 +704,7 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 ## [4,] 1.1378504 1.2337821
 ## [5,] 1.0016641 0.8409815
 ## [6,] 1.1576873 0.7926196</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">tail</span>(post)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(post)</code></pre></div>
 <pre><code>##                mu      sig2
 ##  [995,] 0.7813494 0.5510765
 ##  [996,] 0.9622221 0.7612775
@@ -744,12 +712,12 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 ##  [998,] 0.9434455 0.8416027
 ##  [999,] 0.9085257 0.8193501
 ## [1000,] 0.9411790 0.9053170</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">library</span>(coda)</a></code></pre></div>
-<pre><code>## Warning: package &#39;coda&#39; was built under R version 3.6.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(coda)</code></pre></div>
+<pre><code>## Warning: package &#39;coda&#39; was built under R version 3.6.2</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">plot</span>(<span class="kw">as.mcmc</span>(post))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">as.mcmc</span>(post))</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">summary</span>(<span class="kw">as.mcmc</span>(post))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">as.mcmc</span>(post))</code></pre></div>
 <pre><code>## 
 ## Iterations = 1:1000
 ## Thinning interval = 1 
@@ -778,6 +746,175 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 <p>For a sequence of random variables <span class="math inline">\(X_1,X_2,...\)</span> that are seperated in time, we can relate it with the concept of autocorrelation. That is, the correlation between <span class="math inline">\(X_t\)</span> with the past or future <span class="math inline">\(X_{t-l}\)</span>, which can be defined formally as follows.</p>
 <p><span class="math display">\[ACF(X_t,X_{t-l})=\frac{cov(X_t,X_{t-l})}{\sqrt{Var(X_t) \cdot Var(X_{t-l})}}\]</span></p>
 <p>If the sequence is stationary, such that the joint distribution of mutiple <span class="math inline">\(Xs\)</span> does not change with time shifts, then autocorrelation for two variables does not depend on the exact times <span class="math inline">\(t\)</span> and <span class="math inline">\(t-l\)</span>, but rather on the distance between them, namely <span class="math inline">\(l\)</span>. Thus, we can see the reason why autocorrelation plots use lags as to calculate MCMC convergence.</p>
+<p>Autocorrelation tells us how much information is available in the Markov chain. Sampling 1000 iterations from a highly correlated Markov chain yields less information about the stationary distribution than we would obtain from 1000 samples independently drawn from the stationary distribution.</p>
+<p>Autocorrelation is a major component in calculating the Monte Carlo effective sample size of your chain. The Monte Carlo effective sample size is how many independent samples from the stationary distribution you would have to draw to have equivalent information in your Markov chain. Essentially it is the m (sample size) we chose in the lesson on Monte Carlo estimation.</p>
+</div>
+<div id="step-size-and-iteration-number" class="section level3">
+<h3><span class="header-section-number">2.6.2</span> Step size and iteration number</h3>
+<p>Step size = variance of the proposal</p>
+<p>Increase the variance of the proposal = Increase the step size</p>
+<p>Increasing the variance of the proposal will decrease the acceptance rate. However, the chain will be more likely to be stable. If the chain is not stable, you can increase the iteration to reach stable. That is, you can view the chain in a longer (or, larger) iteraction scale.</p>
+<p>For instance, m=100e3 will look more stable thant m=10e3, even they share the same sd=0.04.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(coda)
+lg=<span class="cf">function</span>(mu, n, ybar)
+{ mu2=mu<span class="op">^</span><span class="dv">2</span>
+n<span class="op">*</span>(ybar<span class="op">*</span>mu<span class="op">-</span>mu2<span class="op">/</span><span class="dv">2</span>)<span class="op">-</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">+</span>mu2)}
+
+mu_now=<span class="dv">10</span>
+cand_sd=<span class="dv">5</span>
+y=<span class="kw">c</span>(<span class="fl">1.2</span>,<span class="fl">1.4</span>,<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">2.3</span>,<span class="fl">1.0</span>,<span class="fl">0.1</span>,<span class="fl">1.3</span>,<span class="fl">1.9</span>)
+ybar=<span class="kw">mean</span>(y)
+
+n=<span class="kw">length</span>(y)
+mu_storage&lt;-<span class="kw">c</span>()
+mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_now)
+acceptance_count=<span class="dv">0</span>
+
+mh&lt;-<span class="cf">function</span>(mu_now,m,type_MH,cand_sd)
+{
+  
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m)
+  {
+    <span class="cf">if</span> (type_MH<span class="op">==</span><span class="st">&quot;randomwalk&quot;</span>)  <span class="co"># random walk, as mean is updated with mu_now</span>
+    {
+      mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span>mu_now, <span class="dt">sd=</span>cand_sd)
+    }
+    <span class="cf">else</span>
+    {
+      <span class="cf">if</span>(type_MH<span class="op">==</span><span class="st">&quot;independent&quot;</span>)  <span class="co"># independent, as mean is fixed</span>
+      {mu_cand =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">3</span>, <span class="dt">sd=</span>cand_sd)}
+      <span class="cf">else</span>
+      {<span class="kw">print</span>(<span class="st">&quot;woring type of MH&quot;</span>)
+        <span class="cf">break</span>
+      }
+    }
+    
+    lg_alpha=<span class="kw">lg</span>(mu_cand,<span class="dt">n=</span>n,<span class="dt">ybar =</span> ybar)<span class="op">-</span><span class="kw">lg</span>(mu_now,<span class="dt">n=</span>n,<span class="dt">ybar=</span>ybar)
+    alpha=<span class="kw">exp</span>(lg_alpha)
+    <span class="cf">if</span>(alpha<span class="op">&gt;</span><span class="dv">1</span>)
+    {mu_now=mu_cand
+     acceptance_count=acceptance_count<span class="op">+</span><span class="dv">1</span>}
+    <span class="cf">else</span>
+    {random_p=<span class="kw">runif</span>(<span class="dv">1</span>)
+    <span class="cf">if</span>(alpha<span class="op">&gt;</span>random_p)
+    {mu_now=mu_cand
+    acceptance_count=acceptance_count<span class="op">+</span><span class="dv">1</span>}
+    <span class="cf">else</span>
+    {mu_now=mu_now}
+    }
+    mu_storage&lt;-<span class="kw">c</span>(mu_storage,mu_now)
+  }
+  <span class="co">#return the following</span>
+  <span class="kw">list</span>(<span class="dt">mu=</span>mu_storage,<span class="dt">accpt=</span>acceptance_count<span class="op">/</span>m)
+}
+
+<span class="kw">set.seed</span>(<span class="dv">61</span>)
+post0 =<span class="st"> </span><span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="fl">0.0</span>, <span class="dt">m=</span><span class="fl">10e3</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.9</span>)
+coda<span class="op">::</span><span class="kw">traceplot</span>(<span class="kw">as.mcmc</span>(post0<span class="op">$</span>mu[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)]))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post0<span class="op">$</span>accpt</code></pre></div>
+<pre><code>## [1] 0.3829</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">61</span>)
+post1 =<span class="st"> </span><span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="fl">0.0</span>, <span class="dt">m=</span><span class="fl">10e3</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.04</span>)
+coda<span class="op">::</span><span class="kw">traceplot</span>(<span class="kw">as.mcmc</span>(post1<span class="op">$</span>mu[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)]))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post1<span class="op">$</span>accpt</code></pre></div>
+<pre><code>## [1] 0.9566</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">61</span>)
+post2 =<span class="st"> </span><span class="kw">mh</span>(<span class="dt">mu_now=</span><span class="fl">0.0</span>, <span class="dt">m=</span><span class="fl">100e3</span>,<span class="dt">type_MH=</span><span class="st">&quot;randomwalk&quot;</span>,<span class="dt">cand_sd=</span><span class="fl">0.04</span>)
+coda<span class="op">::</span><span class="kw">traceplot</span>(<span class="kw">as.mcmc</span>(post2<span class="op">$</span>mu[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)]))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post2<span class="op">$</span>accpt</code></pre></div>
+<pre><code>## [1] 0.95953</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.plot</span>(<span class="kw">as.mcmc</span>(post0<span class="op">$</span>mu))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-4.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.diag</span>(<span class="kw">as.mcmc</span>(post0<span class="op">$</span>mu))</code></pre></div>
+<pre><code>##                [,1]
+## Lag 0   1.000000000
+## Lag 1   0.575835262
+## Lag 5   0.065035494
+## Lag 10 -0.009494001
+## Lag 50 -0.036844986</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.plot</span>(<span class="kw">as.mcmc</span>(post1<span class="op">$</span>mu))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-5.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.diag</span>(<span class="kw">as.mcmc</span>(post1<span class="op">$</span>mu))</code></pre></div>
+<pre><code>##             [,1]
+## Lag 0  1.0000000
+## Lag 1  0.9013201
+## Lag 5  0.8696353
+## Lag 10 0.8327876
+## Lag 50 0.5591849</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.plot</span>(<span class="kw">as.mcmc</span>(post2<span class="op">$</span>mu))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-6.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.diag</span>(<span class="kw">as.mcmc</span>(post2<span class="op">$</span>mu))</code></pre></div>
+<pre><code>##             [,1]
+## Lag 0  1.0000000
+## Lag 1  0.9822054
+## Lag 5  0.9507519
+## Lag 10 0.9131846
+## Lag 50 0.6545171</code></pre>
+</div>
+<div id="effective-sample-size" class="section level3">
+<h3><span class="header-section-number">2.6.3</span> Effective sample size</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(post2) <span class="co"># contains 100,000 iterations</span></code></pre></div>
+<pre><code>## List of 2
+##  $ mu   : num [1:100001] 10 -0.0152 -0.1007 -0.0867 -0.1421 ...
+##  $ accpt: num 0.96</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">effectiveSize</span>(<span class="kw">as.mcmc</span>(post2<span class="op">$</span>mu)) </code></pre></div>
+<pre><code>##     var1 
+## 414.9936</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># thin out the samples until autocorrelation is essentially 0. </span>
+<span class="co"># This will leave you with approximately independent samples. </span>
+<span class="co"># The number of samples remaining is similar to the effective sample size.</span>
+coda<span class="op">::</span><span class="kw">autocorr.plot</span>(<span class="kw">as.mcmc</span>(post2<span class="op">$</span>mu), <span class="dt">lag.max=</span><span class="dv">500</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">thin_interval =<span class="st"> </span><span class="dv">400</span> <span class="co"># how far apart the iterations are for autocorrelation to be essentially 0.</span>
+thin_indx =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span>thin_interval, <span class="dt">to=</span><span class="kw">length</span>(post2<span class="op">$</span>mu), <span class="dt">by=</span>thin_interval)
+<span class="kw">head</span>(thin_indx)</code></pre></div>
+<pre><code>## [1]  400  800 1200 1600 2000 2400</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post2mu_thin =<span class="st"> </span>post2<span class="op">$</span>mu[thin_indx]
+<span class="kw">traceplot</span>(<span class="kw">as.mcmc</span>(post2<span class="op">$</span>mu))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">traceplot</span>(<span class="kw">as.mcmc</span>(post2mu_thin))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">autocorr.plot</span>(<span class="kw">as.mcmc</span>(post2mu_thin), <span class="dt">lag.max=</span><span class="dv">10</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-4.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">effectiveSize</span>(<span class="kw">as.mcmc</span>(post2mu_thin))</code></pre></div>
+<pre><code>## var1 
+##  250</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(post2mu_thin)</code></pre></div>
+<pre><code>## [1] 250</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(post0) <span class="co"># contains 10,000 iterations</span></code></pre></div>
+<pre><code>## List of 2
+##  $ mu   : num [1:10001] 10 0 0 0.315 0.315 ...
+##  $ accpt: num 0.383</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coda<span class="op">::</span><span class="kw">effectiveSize</span>(<span class="kw">as.mcmc</span>(post0<span class="op">$</span>mu)) <span class="co"># effective sample size of ~2,500</span></code></pre></div>
+<pre><code>##     var1 
+## 2582.095</code></pre>
+</div>
+<div id="burn-in" class="section level3">
+<h3><span class="header-section-number">2.6.4</span> Burn in</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nburn =<span class="st"> </span><span class="dv">1000</span> <span class="co"># remember to discard early iterations</span>
+post0<span class="op">$</span>mu_keep =<span class="st"> </span>post0<span class="op">$</span>mu[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>)]
+<span class="kw">summary</span>(<span class="kw">as.mcmc</span>(post0<span class="op">$</span>mu_keep))</code></pre></div>
+<pre><code>## 
+## Iterations = 1:9001
+## Thinning interval = 1 
+## Number of chains = 1 
+## Sample size per chain = 9001 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##           Mean             SD       Naive SE Time-series SE 
+##       0.893087       0.313314       0.003302       0.006773 
+## 
+## 2. Quantiles for each variable:
+## 
+##   2.5%    25%    50%    75%  97.5% 
+## 0.3010 0.6707 0.8873 1.1129 1.4939</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(post0<span class="op">$</span>mu_keep <span class="op">&gt;</span><span class="st"> </span><span class="fl">1.0</span>) <span class="co"># posterior probability that mu  &gt; 1.0</span></code></pre></div>
+<pre><code>## [1] 0.371181</code></pre>
 
 </div>
 </div>
@@ -843,7 +980,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

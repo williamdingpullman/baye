@@ -7,3 +7,138 @@ For a sequence of random variables $X_1,X_2,...$ that are seperated in time, we 
 $$ACF(X_t,X_{t-l})=\frac{cov(X_t,X_{t-l})}{\sqrt{Var(X_t) \cdot Var(X_{t-l})}}$$
 
 If the sequence is stationary, such that the joint distribution of mutiple $Xs$ does not change with time shifts, then autocorrelation for two variables does not depend on the exact times $t$ and $t-l$, but rather on the distance between them, namely $l$. Thus, we can see the reason why autocorrelation plots use lags as to calculate MCMC convergence. 
+
+
+Autocorrelation tells us how much information is available in the Markov chain. Sampling 1000 iterations from a highly correlated Markov chain yields less information about the stationary distribution than we would obtain from 1000 samples independently drawn from the stationary distribution.
+
+Autocorrelation is a major component in calculating the Monte Carlo effective sample size of your chain. The Monte Carlo effective sample size is how many independent samples from the stationary distribution you would have to draw to have equivalent information in your Markov chain. Essentially it is the m (sample size) we chose in the lesson on Monte Carlo estimation.
+
+### Step size and iteration number
+
+Step size = variance of the proposal 
+
+Increase the variance of the proposal = Increase the step size
+
+Increasing the variance of the proposal will decrease the acceptance rate. However, the chain will be more likely to be stable. If the chain is not stable, you can increase the iteration to reach stable. That is, you can view the chain in a longer (or, larger) iteraction scale. 
+
+For instance, m=100e3 will look more stable thant m=10e3, even they share the same sd=0.04.
+
+```{R}
+library(coda)
+lg=function(mu, n, ybar)
+{ mu2=mu^2
+n*(ybar*mu-mu2/2)-log(1+mu2)}
+
+mu_now=10
+cand_sd=5
+y=c(1.2,1.4,-0.5,0.3,0.9,2.3,1.0,0.1,1.3,1.9)
+ybar=mean(y)
+
+n=length(y)
+mu_storage<-c()
+mu_storage<-c(mu_storage,mu_now)
+acceptance_count=0
+
+mh<-function(mu_now,m,type_MH,cand_sd)
+{
+  
+  for (i in 1:m)
+  {
+    if (type_MH=="randomwalk")  # random walk, as mean is updated with mu_now
+    {
+      mu_cand = rnorm(n=1, mean=mu_now, sd=cand_sd)
+    }
+    else
+    {
+      if(type_MH=="independent")  # independent, as mean is fixed
+      {mu_cand = rnorm(n=1, mean=3, sd=cand_sd)}
+      else
+      {print("woring type of MH")
+        break
+      }
+    }
+    
+    lg_alpha=lg(mu_cand,n=n,ybar = ybar)-lg(mu_now,n=n,ybar=ybar)
+    alpha=exp(lg_alpha)
+    if(alpha>1)
+    {mu_now=mu_cand
+     acceptance_count=acceptance_count+1}
+    else
+    {random_p=runif(1)
+    if(alpha>random_p)
+    {mu_now=mu_cand
+    acceptance_count=acceptance_count+1}
+    else
+    {mu_now=mu_now}
+    }
+    mu_storage<-c(mu_storage,mu_now)
+  }
+  #return the following
+  list(mu=mu_storage,accpt=acceptance_count/m)
+}
+
+set.seed(61)
+post0 = mh(mu_now=0.0, m=10e3,type_MH="randomwalk",cand_sd=0.9)
+coda::traceplot(as.mcmc(post0$mu[-c(1:10)]))
+post0$accpt
+
+set.seed(61)
+post1 = mh(mu_now=0.0, m=10e3,type_MH="randomwalk",cand_sd=0.04)
+coda::traceplot(as.mcmc(post1$mu[-c(1:10)]))
+post1$accpt
+
+set.seed(61)
+post2 = mh(mu_now=0.0, m=100e3,type_MH="randomwalk",cand_sd=0.04)
+coda::traceplot(as.mcmc(post2$mu[-c(1:10)]))
+post2$accpt
+
+coda::autocorr.plot(as.mcmc(post0$mu))
+coda::autocorr.diag(as.mcmc(post0$mu))
+
+coda::autocorr.plot(as.mcmc(post1$mu))
+coda::autocorr.diag(as.mcmc(post1$mu))
+
+coda::autocorr.plot(as.mcmc(post2$mu))
+coda::autocorr.diag(as.mcmc(post2$mu))
+```
+
+### Effective sample size
+
+```{R}
+str(post2) # contains 100,000 iterations
+
+coda::effectiveSize(as.mcmc(post2$mu)) 
+
+# thin out the samples until autocorrelation is essentially 0. 
+# This will leave you with approximately independent samples. 
+# The number of samples remaining is similar to the effective sample size.
+coda::autocorr.plot(as.mcmc(post2$mu), lag.max=500)
+
+thin_interval = 400 # how far apart the iterations are for autocorrelation to be essentially 0.
+thin_indx = seq(from=thin_interval, to=length(post2$mu), by=thin_interval)
+head(thin_indx)
+
+post2mu_thin = post2$mu[thin_indx]
+traceplot(as.mcmc(post2$mu))
+
+traceplot(as.mcmc(post2mu_thin))
+
+coda::autocorr.plot(as.mcmc(post2mu_thin), lag.max=10)
+
+effectiveSize(as.mcmc(post2mu_thin))
+
+length(post2mu_thin)
+
+str(post0) # contains 10,000 iterations
+coda::effectiveSize(as.mcmc(post0$mu)) # effective sample size of ~2,500
+```
+
+### Burn in
+
+```{R}
+nburn = 1000 # remember to discard early iterations
+post0$mu_keep = post0$mu[-c(1:1000)]
+summary(as.mcmc(post0$mu_keep))
+
+mean(post0$mu_keep > 1.0) # posterior probability that mu  > 1.0
+```
