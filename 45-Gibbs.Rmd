@@ -36,7 +36,7 @@ $$\mu \sim N(\mu_0,\sigma_0^2)$$
 
 $$\sigma^2 \sim IG(v_0,\beta_0)$$
 
-$$\begin{aligned} p(\mu, \sigma^2) &\propto p(y1,...,y_n| \mu, \sigma^2)p(\mu)p(\sigma^2) \\ &=\prod_{i=1}^n[N(y_i|\mu,\sigma^2)]N(\mu|\mu_0,\sigma_0^2)IG(\sigma^2|v_0,\beta_0)\\ &= \prod_{i=1}^n [\frac{1}{\sqrt{2\pi \sigma^2}} exp(-\frac{1}{2\sigma^2}(y_i-\mu)^2)] \cdot \frac{1}{\sqrt{2\pi \sigma_0^2}} exp(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2) \cdot \frac{\beta_0^{v_0}}{\Gamma(v_0)}(\sigma^2)^{-(v_0+1)}exp(-\frac{\beta_0}{\sigma^2}) \\ &\propto (\sigma^2)^{-\frac{n}{2}}exp[-\frac{1}{2\sigma^2} \sum_{i=1}^n(y_i-\mu)^2] \cdot exp[-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2] \cdot (\sigma^2)^{-(v_0+1)}exp[-\frac{\beta_0}{\sigma^2}] \end{aligned}$$ 
+$$\begin{aligned} p(\mu, \sigma^2) &\propto p(y1,...,y_n| \mu, \sigma^2)p(\mu)p(\sigma^2) \\ &=\prod_{i=1}^n[N(y_i|\mu,\sigma^2)]N(\mu|\mu_0,\sigma_0^2)IG(\sigma^2|v_0,\beta_0)\\ &= \prod_{i=1}^n [\frac{1}{\sqrt{2\pi \sigma^2}} exp(-\frac{1}{2\sigma^2}(y_i-\mu)^2)] \cdot \frac{1}{\sqrt{2\pi \sigma_0^2}} exp(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2) \\ &\cdot \frac{\beta_0^{v_0}}{\Gamma(v_0)}(\sigma^2)^{-(v_0+1)}exp(-\frac{\beta_0}{\sigma^2}) \\ &\propto (\sigma^2)^{-\frac{n}{2}}exp[-\frac{1}{2\sigma^2} \sum_{i=1}^n(y_i-\mu)^2] \cdot exp[-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2] \cdot (\sigma^2)^{-(v_0+1)}exp[-\frac{\beta_0}{\sigma^2}] \end{aligned}$$ 
 
 
 The following the full conditoinal distribution:
