@@ -225,9 +225,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)
 <span class="kw">mean</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 1.994413</code></pre>
+<pre><code>## [1] 2.005542</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(sample_data_gamma)</code></pre></div>
-<pre><code>## [1] 0.9918095</code></pre>
+<pre><code>## [1] 0.987054</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
 mean_c&lt;-<span class="kw">c</span>()
@@ -754,7 +754,7 @@ post=<span class="kw">gibbs</span>(<span class="dt">y=</span>y,<span class="dt">
 <p>Step size = variance of the proposal</p>
 <p>Increase the variance of the proposal = Increase the step size</p>
 <p>Increasing the variance of the proposal will decrease the acceptance rate. However, the chain will be more likely to be stable. If the chain is not stable, you can increase the iteration to reach stable. That is, you can view the chain in a longer (or, larger) iteraction scale.</p>
-<p>For instance, m=100e3 will look more stable thant m=10e3, even they share the same sd=0.04.</p>
+<p>For instance, m=100e3 will look more stable than m=10e3, even though they share the same sd=0.04.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(coda)
 lg=<span class="cf">function</span>(mu, n, ybar)
 { mu2=mu<span class="op">^</span><span class="dv">2</span>

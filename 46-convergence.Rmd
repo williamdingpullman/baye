@@ -21,7 +21,7 @@ Increase the variance of the proposal = Increase the step size
 
 Increasing the variance of the proposal will decrease the acceptance rate. However, the chain will be more likely to be stable. If the chain is not stable, you can increase the iteration to reach stable. That is, you can view the chain in a longer (or, larger) iteraction scale. 
 
-For instance, m=100e3 will look more stable thant m=10e3, even they share the same sd=0.04.
+For instance, m=100e3 will look more stable than m=10e3, even though they share the same sd=0.04.
 
 ```{R}
 library(coda)
