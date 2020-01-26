@@ -1,0 +1,9 @@
+## Convergence
+
+### Autocorrelation 
+
+For a sequence of random variables $X_1,X_2,...$ that are seperated in time, we can relate it with the concept of autocorrelation. That is, the correlation between $X_t$ with the past or future $X_{t-l}$, which can be defined formally as follows.
+
+$$ACF(X_t,X_{t-l})=\frac{cov(X_t,X_{t-l})}{\sqrt{Var(X_t) \cdot Var(X_{t-l})}}$$
+
+If the sequence is stationary, such that the joint distribution of mutiple $Xs$ does not change with time shifts, then autocorrelation for two variables does not depend on the exact times $t$ and $t-l$, but rather on the distance between them, namely $l$. Thus, we can see the reason why autocorrelation plots use lags as to calculate MCMC convergence. 

@@ -697,7 +697,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.007953
+## [1] 1.994263
 \end{verbatim}
 
 \begin{Shaded}
@@ -707,7 +707,7 @@ The following R code is for the \(\theta\):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.002165
+## [1] 1.002334
 \end{verbatim}
 
 The following R code is for the \(\bar{\theta^*}\). As we can see, the variance is 0.0016, which is close to the true value of \(\frac{1}{1000}=0.001\).
@@ -1637,6 +1637,18 @@ The following R code first will impletement the following for \(\mu\) and \(\sig
 ## mu   0.3024 0.7244 0.9089 1.090 1.481
 ## sig2 0.3577 0.6084 0.8188 1.094 2.141
 \end{verbatim}
+
+\hypertarget{convergence}{%
+\section{Convergence}\label{convergence}}
+
+\hypertarget{autocorrelation}{%
+\subsection{Autocorrelation}\label{autocorrelation}}
+
+For a sequence of random variables \(X_1,X_2,...\) that are seperated in time, we can relate it with the concept of autocorrelation. That is, the correlation between \(X_t\) with the past or future \(X_{t-l}\), which can be defined formally as follows.
+
+\[ACF(X_t,X_{t-l})=\frac{cov(X_t,X_{t-l})}{\sqrt{Var(X_t) \cdot Var(X_{t-l})}}\]
+
+If the sequence is stationary, such that the joint distribution of mutiple \(Xs\) does not change with time shifts, then autocorrelation for two variables does not depend on the exact times \(t\) and \(t-l\), but rather on the distance between them, namely \(l\). Thus, we can see the reason why autocorrelation plots use lags as to calculate MCMC convergence.
 
 \bibliography{book.bib,packages.bib}
 

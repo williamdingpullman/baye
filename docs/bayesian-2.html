@@ -190,6 +190,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.3" data-path="bayesian-2.html"><a href="bayesian-2.html#example"><i class="fa fa-check"></i><b>2.5.3</b> Example</a></li>
 <li class="chapter" data-level="2.5.4" data-path="bayesian-2.html"><a href="bayesian-2.html#r-code-1"><i class="fa fa-check"></i><b>2.5.4</b> R code</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="bayesian-2.html"><a href="bayesian-2.html#convergence"><i class="fa fa-check"></i><b>2.6</b> Convergence</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="bayesian-2.html"><a href="bayesian-2.html#autocorrelation"><i class="fa fa-check"></i><b>2.6.1</b> Autocorrelation</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
@@ -248,9 +251,9 @@ Note that, it is the variance for <span class="math inline">\(\bar{\theta^*}\)</
 <p>The following R code is for the <span class="math inline">\(\theta\)</span>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">sample_data_gamma&lt;-<span class="kw">rgamma</span>(<span class="dv">10000</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">mean</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 1.993125</code></pre>
+<pre><code>## [1] 2.011747</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span>(sample_data_gamma)</a></code></pre></div>
-<pre><code>## [1] 0.9918974</code></pre>
+<pre><code>## [1] 1.012537</code></pre>
 <p>The following R code is for the <span class="math inline">\(\bar{\theta^*}\)</span>. As we can see, the variance is 0.0016, which is close to the true value of <span class="math inline">\(\frac{1}{1000}=0.001\)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
 <a class="sourceLine" id="cb7-2" title="2">mean_c&lt;-<span class="kw">c</span>()</a>
@@ -765,6 +768,16 @@ If <span class="math inline">\(\theta^*=fair, \alpha=\frac{0.0125}{0.0794}=1.574
 ##        2.5%    25%    50%   75% 97.5%
 ## mu   0.3024 0.7244 0.9089 1.090 1.481
 ## sig2 0.3577 0.6084 0.8188 1.094 2.141</code></pre>
+
+</div>
+</div>
+<div id="convergence" class="section level2">
+<h2><span class="header-section-number">2.6</span> Convergence</h2>
+<div id="autocorrelation" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Autocorrelation</h3>
+<p>For a sequence of random variables <span class="math inline">\(X_1,X_2,...\)</span> that are seperated in time, we can relate it with the concept of autocorrelation. That is, the correlation between <span class="math inline">\(X_t\)</span> with the past or future <span class="math inline">\(X_{t-l}\)</span>, which can be defined formally as follows.</p>
+<p><span class="math display">\[ACF(X_t,X_{t-l})=\frac{cov(X_t,X_{t-l})}{\sqrt{Var(X_t) \cdot Var(X_{t-l})}}\]</span></p>
+<p>If the sequence is stationary, such that the joint distribution of mutiple <span class="math inline">\(Xs\)</span> does not change with time shifts, then autocorrelation for two variables does not depend on the exact times <span class="math inline">\(t\)</span> and <span class="math inline">\(t-l\)</span>, but rather on the distance between them, namely <span class="math inline">\(l\)</span>. Thus, we can see the reason why autocorrelation plots use lags as to calculate MCMC convergence.</p>
 
 </div>
 </div>
